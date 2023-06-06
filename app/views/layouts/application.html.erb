@@ -14,9 +14,6 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <% if user_signed_in? %>
-      <h2>Olá, <%= current_user.email %></h2>
-    <% end %>
     <%= render "shared/footer" %>
   </body>
 </html>
