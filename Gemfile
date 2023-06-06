@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Devise para user
 gem "devise"
 
+# Faker para o banco de dados seed
+gem "faker"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 
