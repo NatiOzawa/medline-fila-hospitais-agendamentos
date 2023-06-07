@@ -1,1 +1,13 @@
-// Specific CSS for your home-page
+.home-grid {
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+
+  .home-emergency {
+    background-color: #008000;
+  }
+
+  .home-position {
+    background-color: rgb(148, 201, 148);
+  }
+}

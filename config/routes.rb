@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :appointments do
     collection do
-      get "my_appointments"
-      get "history"
+      get "my_appointments", to: "appointments#my_appointments", as: "my_appointments"
+      get "history", to: "appointments#history", as: "history"
     end
   end
 end
