@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get "my_appointments"
       get "history"
+      get "specialties"
     end
   end
 end

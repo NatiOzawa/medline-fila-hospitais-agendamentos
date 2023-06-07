@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center my-3">
+    <div class="col col-md-8">
+      <h1 class="text-center">Agendar consulta</h1>
+
+      <%= form_with url: "/", method: :get do |form| %>
+
+
+  <div data-controller="specialty" data-specialty-url-value="<%= specialties_appointments_path %>" data-specialty-param-value="specialty">
+    <div class="mb-3">
+      <%= form.label :specialty, class: 'form-label' %>
+      <%= form.select :specialty, Doctor::SPECIALTIES, { prompt: "Selecione a especialidade" }, { class: 'form-select', data: { action: "change->specialty#change" } } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :doctor, class: 'form-label' %>
+      <%= form.select :doctor, (form.object ? [] : []), {}, { id: nil, class: 'form-select', data: { specialty_target: "select" } } %>
+    </div>
+  </div>
+  <% end %>
+
+      <%= simple_form_for @appointment do |f| %>
+        <%= f.input :status, collection: Doctor::SPECIALTIES, include_blank: false %>
+        <div class="d-flex align-items-center justify-content-center">
+          <%= f.submit class: 'btn btn-primary me-3' %>
+          <%= link_to 'Back', "#", class: "btn btn-warning my-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

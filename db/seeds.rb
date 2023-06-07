@@ -5,6 +5,8 @@ Appointment.destroy_all
 Clinic.destroy_all
 User.destroy_all
 
+User.create!(email: "teste@teste", password: "123456")
+
 20.times do
   user = User.new(
     name: Faker::Name.name,
@@ -34,7 +36,7 @@ end
 10.times do
   doctor = Doctor.new(
     name: Faker::Name.name,
-    specialty: Faker::Job.title,
+    specialty: Doctor::SPECIALTIES.sample,
     crm: Faker::Number.number(digits: 6),
     clinic_id: Clinic.pluck(:id).sample
   )

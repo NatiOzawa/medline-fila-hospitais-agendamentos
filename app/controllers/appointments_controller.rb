@@ -18,6 +18,10 @@ def index
   @appointments = Appointment.all
 end
 
+def show
+  @appointment = Appointment.find(params[:id])
+end
+
 def destroy
   @appointment = Appointment.find(params[:id])
   if @appointment.user == current_user
@@ -32,6 +36,16 @@ end
 
 def my_appointments
   @appointments = Appointment.where(user: current_user)
+end
+
+def specialties
+  @specialty = params[:specialty]
+  @doctors = Doctor.where(specialty: params[:specialty])
+  @clinics = @doctors.map{ |doctor| doctor.clinic }
+  raise
+  respond_to do |format|
+    format.turbo_stream
+  end
 end
 
 
