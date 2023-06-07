@@ -22,7 +22,7 @@
               <%= link_to "Minha Conta", "#", class: "dropdown-item" %>
               <%= link_to "Meus Agendamentos", "#", class: "dropdown-item" %>
               <%= link_to "Histórico de Atendimento", "#", class: "dropdown-item" %>
-              <%= link_to "Sair", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "logout", logout_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>
