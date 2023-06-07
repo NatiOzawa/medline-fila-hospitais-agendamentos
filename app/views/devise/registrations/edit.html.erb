@@ -1,62 +1,62 @@
-<div class="container edit-card">
-  <h2>Editar Conta <%= resource_name.to_s.humanize %></h2>
+<div class="container edit-card d-flex align-items-center justify-content-center">
+  <div class="row col-xs-12 col-sm-4 col-sm-offset-4">
+    <h2>Editar Conta <%= resource_name.to_s.humanize %></h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <div class="dados-conta">
-        <%= f.input :email, required: true, autofocus: true %>
+      <div class="form-inputs">
+        <div class="dados-conta">
+          <%= f.input :email, required: true, autofocus: true %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-        <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %>
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+        </div>
+        <div class="dados-pessoais">
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+          <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+          <%= f.input :date_of_birth,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :address,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+          <%= f.input :phone,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :health_insurance,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+        </div>
       </div>
-      <div class="dados-pessoais">
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
-        <%= f.input :date_of_birth,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :address,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
-        <%= f.input :phone,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :health_insurance,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+      <div class="form-actions">
+        <%= f.button :submit, "Update" %>
       </div>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Update" %>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
   <h3>Cancel my account</h3>
 
   <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
