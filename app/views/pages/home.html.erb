@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="home-grid">
+  <div class="home-emergency">
+    <%= link_to "#" do %>
+      <p>Emergência</p>
+    <% end %>
+  </div>
+
+  <div class="home-position">
+    <p>Posição na fila</p>
+  </div>
+</div>
+
+<div>
+  <p>Próximo agendamento</p>
+  <%= @appointments.each_with_index do |appointment, index| %>
+    <% if index == 0 %>
+      <%= appointment.time %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to new_appointment_path do %>
+    <p>Agendar Consulta</p>
+  <% end %>
+
+  <%= link_to my_appointments_appointments_path do %>
+    <p>Meus Agendamentos</p>
+  <% end %>
+
+  <%= link_to history_appointments_path do %>
+    <p>Histórico de Atendimento</p>
+  <% end %>
+
+  <%= link_to edit_user_registration_path do %>
+    <p>Atualizar Meus Dados</p>
+  <% end %>
+
+</div>
