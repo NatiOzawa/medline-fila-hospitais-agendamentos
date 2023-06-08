@@ -4,7 +4,7 @@
   <div class="home-grid-1">
     <div class="home-emergency">
       <div class="position-image-container">
-        <img src="https://images.unsplash.com/photo-1588543385566-413e13a51a24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YW1idWwlQzMlQTJuY2lhfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" class="card-img" alt="Ambulância">
+          <%= image_tag "ambulancia.png", class: "card-img" %>
         <div class="card-img-overlay">
           <%= link_to "#", style: "text-decoration: none; color: white;" do %>
             <h5 class="card-title">Emergência</h5>
@@ -16,7 +16,7 @@
 
     <div class="home-position">
       <div class="position-image-container">
-        <img src="https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlbXBvJTIwZXNwZXJhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="card-img" alt="Tempo de espera">
+        <%= image_tag "tempo.png", class: "card-img" %>
         <div class="card-img-overlay">
           <h5 class="card-title">Posição na fila</h5>
           <p class="card-text">Tempo total.</p>
