@@ -5,14 +5,14 @@ Appointment.destroy_all
 Clinic.destroy_all
 User.destroy_all
 
-20.times do
+20.times do |i|
   user = User.new(
     name: Faker::Name.name,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
     address: Faker::Address.full_address,
     phone: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 8),
+    email: "teste#{i+1}@teste.com",
+    password: "123123",
     health_insurance: Faker::Company.name,
     lat: Faker::Address.latitude,
     long: Faker::Address.longitude
@@ -45,7 +45,7 @@ end
   appointment = Appointment.new(
     user_id: User.pluck(:id).sample,
     doctor_id: Doctor.pluck(:id).sample,
-    time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :default),
+    time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30, format: :default),
     status: ['Agendado', 'Realizado', 'Cancelado'].sample,
     clinic_id: Clinic.pluck(:id).sample,
     emergency: [true, false].sample,
