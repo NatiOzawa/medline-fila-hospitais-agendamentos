@@ -1,35 +1,62 @@
+<link rel="stylesheet" href="pages/_home.scss">
 
-<div class="home-grid">
-  <div class="home-emergency">
-    <%= link_to "#" do %>
-      <p>Emergência</p>
-    <% end %>
+<div class="container">
+  <div class="home-grid-1">
+    <div class="home-emergency">
+      <div class="position-image-container">
+          <%= image_tag "ambulancia.png", class: "card-img" %>
+        <div class="card-img-overlay">
+          <%= link_to "#", style: "text-decoration: none; color: white;" do %>
+            <h5 class="card-title">Emergência</h5>
+          <% end %>
+          <p class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-position">
+      <div class="position-image-container">
+        <%= image_tag "tempo.png", class: "card-img" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">Posição na fila</h5>
+          <p class="card-text">Tempo total.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="home-position">
-    <p>Posição na fila</p>
+  <div class="home-next-appointments" style="color: white;">
+    <% if Appointment.next(current_user).blank? %>
+      <p> Não tem agendamento no momento </p>
+    <% else %>
+      <p class="white-text">Próximo agendamento</p>
+      <%= l Appointment.next(current_user).time, format: "%d/%m/%y %H:%M" %>
+    <% end  %>
   </div>
-</div>
 
-<div>
-  <p>Próximo agendamento</p>
-</div>
+  <div class="home-grid-2">
+    <div class="home-new-appointments">
+      <%= link_to new_appointment_path, style: "text-decoration: none; color: white;" do %>
+        <p>Agendar Consulta</p>
+      <% end %>
+    </div>
 
-<div>
-  <%= link_to new_appointment_path do %>
-    <p>Agendar Consulta</p>
-  <% end %>
+    <div class="home-my-appointments">
+      <%= link_to my_appointments_appointments_path, style: "text-decoration: none; color: white;" do %>
+        <p>Meus Agendamentos</p>
+      <% end %>
+    </div>
 
-  <%= link_to my_appointments_appointments_path do %>
-    <p>Meus Agendamentos</p>
-  <% end %>
+    <div class="home-history">
+      <%= link_to history_appointments_path, style: "text-decoration: none; color: white;"  do %>
+        <p>Histórico de Atendimento</p>
+      <% end %>
+    </div>
 
-  <%= link_to history_appointments_path do %>
-    <p>Histórico de Atendimento</p>
-  <% end %>
-
-  <%= link_to edit_user_registration_path do %>
-    <p>Atualizar Meus Dados</p>
-  <% end %>
-
+    <div class="home-edit-account">
+      <%= link_to edit_user_registration_path, style: "text-decoration: none; color: white;" do %>
+        <p>Atualizar Meus Dados</p>
+      <% end %>
+    </div>
+  </div>
 </div>

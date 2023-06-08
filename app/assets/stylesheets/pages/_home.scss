@@ -1,13 +1,88 @@
-.home-grid {
-  display:grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
+// .home-grid {
+//   display:grid;
+//   grid-template-columns: 2fr 1fr;
+//   gap: 20px;
 
-  .home-emergency {
-    background-color: #008000;
-  }
+  // .home-emergency {
+  //   background-color: #008000;
+  // }
 
-  .home-position {
-    background-color: rgb(148, 201, 148);
-  }
+  // .home-position {
+  //   background-color: rgb(148, 201, 148);
+  // }
+// }
+
+.home-grid-1 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.home-emergency {
+  color: #64b6ac;
+  background-color: #5d737e;
+  width: calc(66.67% - 10px);
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+  height: 100px;
+}
+
+.home-position {
+  width: calc(33.33% - 10px);
+  color: #64b6ac;
+  background-color: #5d737e;
+  margin-left: 10px;
+  height: 100px;
+}
+
+
+.home-next-appointments {
+  width: calc(100%);
+  color: #64b6ac;
+  background-color: #5d737e;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.home-grid-2 {
+  display: flex;
+  margin-top: 20px;
+}
+
+.home-my-appointments, .home-new-appointments, .home-history, .home-edit-account {
+  width: calc(25% - 10px);
+  color: #64b6ac;
+  background-color: #5d737e;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.home-my-appointments:first-child {
+  margin-left: 0;
+}
+
+.home-position-1-3 {
+  width: calc(33.33% - 10px);
+  color: #64b6ac;
+  background-color: #5d737e;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.position-image-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  color: #fff;
+}
+
+.card-img {
+  height: 100%;
 }
