@@ -1,0 +1,10 @@
+<div data-controller="emergency">
+  <p id="lat" data-emergency-target="lat">a</p>
+  <p id="long" data-emergency-target="long">b</p>
+  <% @clinics.each do |clinic| %>
+    <h1>Nome: <%= clinic.name  %></h1>
+    <p>Endereço: <%= clinic.address %></p>
+    <p>Deslocamento: </p>
+    <p>Atendimento: </p>
+  <% end %>
+</div>
