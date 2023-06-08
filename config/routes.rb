@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :clinics, only: :index
   resources :users, only: [:new, :create, :edit, :update]
   delete '/logout', to: 'users#logout', as: :logout
 
