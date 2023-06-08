@@ -39,15 +39,24 @@ def my_appointments
 end
 
 def specialties
-  @specialty = params[:specialty]
+  @target = params[:target]
   @doctors = Doctor.where(specialty: params[:specialty])
-  @clinics = @doctors.map{ |doctor| doctor.clinic }
-  raise
+  @clinics = @doctors.map { |doctor| doctor.clinic }
+
   respond_to do |format|
     format.turbo_stream
   end
 end
 
+def clinics
+  @target = params[:target]
+  @doctor = Doctor.find(params[:doctor])
+  @clinic = Clinic.where(id: @doctor.clinic_id)
+
+  respond_to do |format|
+    format.turbo_stream
+  end
+end
 
 private
 

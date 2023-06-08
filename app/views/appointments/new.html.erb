@@ -6,15 +6,25 @@
       <%= form_with url: "/", method: :get do |form| %>
 
 
-  <div data-controller="specialty" data-specialty-url-value="<%= specialties_appointments_path %>" data-specialty-param-value="specialty">
+  <div data-controller="specialty" data-specialty-url-doctors-value="<%= specialties_appointments_path %>" data-specialty-specialty-param-value="specialty">
     <div class="mb-3">
       <%= form.label :specialty, class: 'form-label' %>
-      <%= form.select :specialty, Doctor::SPECIALTIES, { prompt: "Selecione a especialidade" }, { class: 'form-select', data: { action: "change->specialty#change" } } %>
+      <%= form.select :specialty, Doctor::SPECIALTIES, { prompt: "Selecione a especialidade" }, { class: 'form-select', data: { action: "change->specialty#changeDoctors" } } %>
     </div>
 
     <div class="mb-3">
       <%= form.label :doctor, class: 'form-label' %>
-      <%= form.select :doctor, (form.object ? [] : []), {}, { id: nil, class: 'form-select', data: { specialty_target: "select" } } %>
+      <%= form.select :doctors, (form.object ? [] : []), {}, { id: nil, class: 'form-select', data: {specialty_param_doctors_value: "doctor", specialty_target: "doctors", action: "change->specialty#changeClinics", specialty_url_clinics_value: clinics_appointments_path } } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :clinic, class: 'form-label' %>
+      <%= form.select :clinics, (form.object ? [] : []), {}, { id: nil, class: 'form-select', data: { specialty_target: "clinics" } } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "Escolha uma data:", class: 'form-label' %>
+      <%= form.datetime_field :time %>
     </div>
   </div>
   <% end %>

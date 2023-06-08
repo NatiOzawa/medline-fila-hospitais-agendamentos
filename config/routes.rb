@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get "my_appointments"
       get "history"
       get "specialties"
+      get "clinics"
     end
   end
 end
