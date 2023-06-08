@@ -1,10 +1,14 @@
-
-<div class="home-grid">
-  <div class="home-emergency">
-    <%= link_to "#" do %>
-      <p>Emergência</p>
-    <% end %>
+<div class="card" style="color: #64b6ac; background-color: #5d737e;" >
+  <img src="..." class="card-img" alt="...">
+  <div class="card-img-overlay">
+  <%= link_to "#" do %>
+    <h5 class="card-title">Emergência</h5>
+        <% end %>
+    <p class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</p>
   </div>
+</div>
+
+
 
   <div class="home-position">
     <p>Posição na fila</p>
@@ -12,7 +16,12 @@
 </div>
 
 <div>
-  <p>Próximo agendamento</p>
+  <% if @appointments.count.zero? %>
+    <p> Não tem agendamento no momento </p>
+  <% else %>
+    <p>Próximo agendamento</p>
+    <%= @appointments.first.time %>
+  <% end  %>
 </div>
 
 <div>

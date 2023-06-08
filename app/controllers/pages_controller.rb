@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @appointments = Appointment.where(user: current_user)
+    @appointments = current_user.appointments.order(:time)
   end
+
   def index
   end
 end
