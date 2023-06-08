@@ -1,10 +1,13 @@
 <div data-controller="emergency">
-  <p id="lat" data-emergency-target="lat">a</p>
-  <p id="long" data-emergency-target="long">b</p>
+
   <% @clinics.each do |clinic| %>
-    <h1>Nome: <%= clinic.name  %></h1>
-    <p>Endereço: <%= clinic.address %></p>
-    <p>Deslocamento: </p>
-    <p>Atendimento: </p>
+    <% n = NavigationService.new(clinic.long, clinic.lat, current_user.long, current_user.lat) %>
+    <% n.calculate %>
+    <div data-emergency-target="clinic">
+      <h1>Nome: <%= clinic.name  %></h1>
+      <p>Endereço: <%= clinic.address %></p>
+      <p>Distancia: <%= (n.distance/1000).round(1) %>Kms</p>
+      <p>Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+    </div>
   <% end %>
 </div>
