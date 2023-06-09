@@ -6,4 +6,12 @@ class Appointment < ApplicationRecord
   def self.next(user)
     user.appointments.where("time >= ?", Time.current).first
   end
+
+  def self.history(user)
+    user.appointments.where("time < ?", Time.current)
+  end
+
+  def self.upcoming(user)
+    user.appointments.where("time >= ?", Time.current)
+  end
 end
