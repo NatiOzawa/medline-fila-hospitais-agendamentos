@@ -53,7 +53,7 @@ end
 10.times do
   doctor = Doctor.new(
     name: Faker::Name.name,
-    specialty: Faker::Job.title,
+    specialty: Doctor::SPECIALTIES.sample,
     crm: Faker::Number.number(digits: 6),
     clinic_id: Clinic.pluck(:id).sample
   )
