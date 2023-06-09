@@ -21,8 +21,8 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Início", home_path, class: "dropdown-item" %>
               <%= link_to "Minha Conta", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Meus Agendamentos", "#", class: "dropdown-item" %>
-              <%= link_to "Histórico de Atendimento", "#", class: "dropdown-item" %>
+              <%= link_to "Meus Agendamentos", my_appointments_appointments_path, class: "dropdown-item" %>
+              <%= link_to "Histórico de Atendimento", history_appointments_path, class: "dropdown-item" %>
               <%= link_to "Sair", logout_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
