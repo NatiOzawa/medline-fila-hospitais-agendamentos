@@ -19,5 +19,6 @@ export default class extends Controller {
   //   console.log(this.latTarget)
   //   navigator.geolocation.getCurrentPosition(this.success, this.error)
   // }
+  
 
 }
