@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.row.carousel {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 70%;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: black; // nao esta funcionando, voltar e arrumar
+}
