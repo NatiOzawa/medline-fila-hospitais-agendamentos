@@ -1,0 +1,11 @@
+<h1>Histórico de atendimentos</h1>
+
+<div class="home-history">
+    <% Appointment.history(current_user).each do |appointment| %>
+        <ul>
+        <li><p>
+          <%= l appointment.time, format: "%d/%m/%y %H:%M" %>
+        </p></li>
+        </ul>
+      <% end %>
+  </div>

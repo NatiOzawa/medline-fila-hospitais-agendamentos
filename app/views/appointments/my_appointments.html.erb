@@ -1,0 +1,12 @@
+<h1>Meus agendamentos</h1>
+
+<div class="my-appointments">
+    <% Appointment.upcoming(current_user).each do |appointment| %>
+        <ul>
+        <li><p>
+          <%= l appointment.time, format: "%d/%m/%y %H:%M" %>
+        </p></li>
+        </ul>
+      <% end %>
+  </div>
+
