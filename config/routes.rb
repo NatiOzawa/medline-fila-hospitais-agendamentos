@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       get "my_appointments", to: "appointments#my_appointments", as: "my_appointments"
       get "history", to: "appointments#history", as: "history"
+      post "emergency"
     end
   end
 end

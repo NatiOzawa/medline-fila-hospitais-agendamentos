@@ -1,13 +1,42 @@
-<div data-controller="emergency">
+<div data-controller="alert" class="container">
+  <h3 class="text-center my-2">Selecione uma clínica</h3>
 
-  <% @clinics.each do |clinic| %>
-    <% n = NavigationService.new(clinic.long, clinic.lat, current_user.long, current_user.lat) %>
-    <% n.calculate %>
-    <div data-emergency-target="clinic">
-      <h1>Nome: <%= clinic.name  %></h1>
-      <p>Endereço: <%= clinic.address %></p>
-      <p>Distancia: <%= (n.distance/1000).round(1) %>Kms</p>
-      <p>Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Procure uma clínica"
+          %>
+        <%= submit_tag "Pesquisar", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="clinic-container" data-alert-target="list">
+    <% @clinics.each do |clinic| %>
+      <% n = NavigationService.new(clinic.long, clinic.lat, current_user.long, current_user.lat) %>
+      <% n.calculate %>
+      <div class="clinic card mb-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="clinic-details">
+              <h5 class="card-title">Nome: <%= clinic.name %></h5>
+              <p class="card-text">Endereço: <%= clinic.address %></p>
+              <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
+              <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+            </div>
+            <div class="clinic-actions">
+              <%= form_tag(emergency_appointments_path, method: :post) do %>
+                <%= hidden_field_tag :clinic_id, clinic.id %>
+                <%= hidden_field_tag :estimated_time, (n.duration/60).round(0) %>
+                <%= submit_tag "Selecionar", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
