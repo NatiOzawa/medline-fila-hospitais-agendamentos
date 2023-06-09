@@ -26,7 +26,8 @@ clinic_long = [-95.58969896, -95.44027493, -95.58824613, -95.14260386, -95.20742
 
 20.times do |i|
   user = User.new(
-    name: Faker::Name.name,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
     address: Faker::Address.full_address,
     phone: Faker::PhoneNumber.phone_number,
