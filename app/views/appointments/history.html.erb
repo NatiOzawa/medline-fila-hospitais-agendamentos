@@ -1,11 +1,15 @@
-<h1>Histórico de atendimentos</h1>
+<div class="container">
+  <h1 class= "text-center">Histórico de atendimentos</h1>
 
-<div class="home-history">
-    <% Appointment.history(current_user).each do |appointment| %>
-        <ul>
-        <li><p>
-          <%= l appointment.time, format: "%d/%m/%y %H:%M" %>
-        </p></li>
-        </ul>
-      <% end %>
-  </div>
+  <div class="home-history">
+      <% Appointment.history(current_user).each do |appointment| %>
+          <ul>
+          <li><p>
+            <p>Data: <%= l appointment.time, format: "%d/%m/%y %H:%M" %></p>
+            <p>Especialidade: <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
+            <p>Clinica: <%=  appointment.clinic.name %></p>
+          </p></li>
+          </ul>
+        <% end %>
+    </div>
+</div>
