@@ -1,0 +1,9 @@
+<h1> Dados do agendamento da consulta </h1>
+<%= simple_form_for @appointment do |f| %>
+  <%= f.input :doctor, label: "Especialidade e Médico", collection: Doctor.all.collect {|d| [ "#{d.specialty} - #{d.name}", d.id ] }, prompt: 'Selecione especialidade/médico' %>
+  <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário" %>
+  <%= f.submit "Confirmar" %>
+  <%= link_to "Voltar", home_path, class: 'btn btn-secondary' %>
+<% end %>
+
+

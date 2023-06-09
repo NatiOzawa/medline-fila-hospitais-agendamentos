@@ -4,7 +4,7 @@ class Appointment < ApplicationRecord
   belongs_to :clinic
 
   def self.next(user)
-    user.appointments.where("time >= ?", Time.current).first
+    user.appointments.where("time >= ?", Time.current).order(:time).first
   end
 
   def self.history(user)
@@ -12,6 +12,6 @@ class Appointment < ApplicationRecord
   end
 
   def self.upcoming(user)
-    user.appointments.where("time >= ?", Time.current)
+    user.appointments.where("time >= ?", Time.current).order(:time)
   end
 end
