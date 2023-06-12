@@ -7,7 +7,14 @@
           <ul>
           <li><p>
             <p>Data: <%= l appointment.time, format: "%d/%m/%y %H:%M" %></p>
-            <p>Especialidade: <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
+            <% if appointment.emergency  %>
+              <p> Emergência </p>
+            <% end %>
+            <% if appointment.doctor  %>
+              <p>Especialidade: <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
+            <% else %>
+              <p>Médico: Plantão </p>
+            <% end %>
             <p>Clinica: <%=  appointment.clinic.name %></p>
             <p>Endereço: <%=  appointment.clinic.address %></p>
           </p></li>
