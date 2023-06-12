@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to home_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag("logo.png") %>
     <% end %>
 
@@ -10,11 +10,11 @@
 
     <div class="navbar-items">
       <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
-        <li class="nav-item col-6 col-lg-auto">
-          <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="#">Junte-se a MedLine</a>
+        <li class="nav-item col-6 col-lg-auto ">
+          <%= link_to "Junte-se a Medline", root_path(anchor: "junte"), class: "nav-link py-2 px-0 px-lg-2 active mr-5" %>
         </li>
         <li class="nav-item col-6 col-lg-auto">
-          <a class="nav-link py-2 px-0 px-lg-2 active"  href="#"> Nossa História</a>
+          <%= link_to "Nossa História", root_path(anchor: "historia"), class: "nav-link py-2 px-0 px-lg-2 active" %>
         </li>
         <li class="nav-item col-6 col-lg-auto">
           <%= link_to "FAQ", root_path(anchor: "accordionExample"), class: "nav-link py-2 px-0 px-lg-2 active" %>
@@ -36,7 +36,7 @@
               <%= link_to "Início", home_path, class: "dropdown-item" %>
               <%= link_to "Agendar Consultas", new_appointment_path, class: "dropdown-item" %>
               <%= link_to "Meus Agendamentos", my_appointments_appointments_path, class: "dropdown-item" %>
-              <%= link_to "Histórico de Atendimento", history_appointments_path, class: "dropdown-item" %>
+              <%= link_to "Histórico de Consultas", history_appointments_path, class: "dropdown-item" %>
               <%= link_to "Minha Conta", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Sair", logout_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
