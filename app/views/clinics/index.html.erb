@@ -28,11 +28,7 @@
               <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
             </div>
             <div class="clinic-actions">
-              <%= form_tag(emergency_appointments_path, method: :post) do %>
-                <%= hidden_field_tag :clinic_id, clinic.id %>
-                <%= hidden_field_tag :estimated_time, (n.duration/60).round(0) %>
-                <%= submit_tag "Selecionar", class: "btn btn-primary" %>
-              <% end %>
+              <%= link_to "Selecionar", new_clinic_emergency_path(clinic), class: "btn btn-primary" %>
             </div>
           </div>
         </div>
