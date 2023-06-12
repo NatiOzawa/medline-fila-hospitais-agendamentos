@@ -13,5 +13,8 @@ application.register("alert", AlertController)
 import EmergencyController from "./emergency_controller"
 application.register("emergency", EmergencyController)
 
+import FilterClinicController from "./filter_clinic_controller"
+application.register("filter-clinic", FilterClinicController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
