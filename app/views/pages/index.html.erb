@@ -50,7 +50,22 @@
       <div class="col-8">
         <div class="flex-container">
           <div class="text">
-            <p class="align-right">Você está cansado de esperar longas horas para agendar uma consulta médica? Com o MedLine, você pode agendar suas consultas com apenas alguns cliques. Nossa plataforma intuitiva permite que você encontre os melhores médicos e horários disponíveis, economizando seu tempo precioso. Junte-se a milhões de pessoas que já descobriram a facilidade e a conveniência do MedLine. Inscreva-se agora!</p>
+            <p class="align-junte">Você está cansado de esperar longas horas para agendar uma consulta médica?</p><p class="align-junte-info">Com o MedLine, você pode agendar suas consultas com apenas alguns cliques.<br>Nossa plataforma intuitiva permite que você encontre os melhores médicos e horários disponíveis, economizando seu tempo precioso.<p class="align-junte-info">Junte-se a milhões de pessoas que já descobriram a facilidade e a conveniência do MedLine.</p>
+            <%= link_to "Inscreva-se", new_user_registration_path, class: "c-button c-button--gooey"%>
+              <div class="c-button__blobs">
+              <div></div>
+              <div></div>
+              <div></div>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                <defs>
+                  <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+                    <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                  </filter>
+                </defs>
+              </svg>
           </div>
         </div>
       </div>
@@ -78,7 +93,7 @@
       <div class="col-8">
         <div class="flex-container">
           <div class="text">
-            <p class="align-right">Nos últimos 5 anos, o MedLine tem se dedicado a revolucionar o setor de agendamento médico e serviços hospitalares. Fundado por um grupo de profissionais de saúde apaixonados, nosso aplicativo/site tem ajudado milhões de pessoas a agendar suas consultas médicas de forma rápida, conveniente e segura. Ao longo dos anos, nos tornamos líderes de mercado, proporcionando uma experiência excepcional aos nossos usuários e ajudando a simplificar o acesso aos cuidados médicos.</p>
+            <p class="align-historia">Nos últimos 5 anos, o MedLine tem se dedicado a revolucionar o setor de agendamento médico e serviços hospitalares.</p><p class="align-historia-info">Fundado por um grupo de profissionais de saúde apaixonados, nossa plataforma tem ajudado milhões de pessoas a agendar suas consultas médicas de forma rápida, conveniente e segura.</p><p class="align-historia-info">Ao longo dos anos, nos tornamos líderes de mercado, proporcionando uma experiência excepcional aos nossos usuários e ajudando a simplificar o acesso aos cuidados médicos.</p>
           </div>
         </div>
       </div>
@@ -96,8 +111,11 @@
   <br>
   <br>
   <br>
-  <div  class="accordion text-center" id="accordionExample">
-    <div class="container" class="accordion-item">
+  <br>
+  <br>
+  <br>
+  <div  class="accordion text-center" id="faq">
+    <div class="container accordion" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <strong class="text-center">Como faço para agendar uma consulta médica?</strong>
@@ -109,7 +127,7 @@
         </div>
       </div>
     </div>
-    <div class="container" class="accordion-item">
+    <div class="container accordion" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           <strong>Como funciona o check-in em caso de emergência?</strong>
@@ -121,7 +139,7 @@
         </div>
       </div>
     </div>
-    <div class="container" class="accordion-item">
+    <div class="container accordion" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           <strong>Posso cancelar ou reagendar uma consulta pela MedLine?</strong>
@@ -133,7 +151,7 @@
         </div>
       </div>
     </div>
-      <div class="container" class="accordion-item">
+      <div class="container accordion" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           <strong>Como faço para obter suporte técnico?</strong>
@@ -141,11 +159,11 @@
       </h2>
       <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          Caso precise de suporte técnico, você pode entrar em contato conosco através da seção de "Contato". Nossa equipe estará pronta para ajudar com qualquer dúvida ou problema que você possa ter.
+          Caso precise de suporte técnico, você pode entrar em contato conosco através do nosso 0800 no final da pagina. Nossa equipe estará pronta para ajudar com qualquer dúvida ou problema que você possa ter.
         </div>
       </div>
     </div>
-      <div class="container" class="accordion-item">
+      <div class="container accordion" class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
           <strong>A MedLine é segura?</strong>
@@ -158,30 +176,6 @@
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
   <br>
   <br>
   <br>
