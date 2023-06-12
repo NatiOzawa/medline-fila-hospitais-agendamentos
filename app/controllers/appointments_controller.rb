@@ -3,6 +3,20 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @specialties = []
+    @specialty = ""
+    @doctors = []
+    if params[:appointment].present? && params[:appointment][:clinic].present?
+      @appointment.clinic = Clinic.find(params[:appointment][:clinic])
+      @specialties = @appointment.clinic.doctors.pluck(:specialty)
+    end
+    if params[:appointment].present? && params[:appointment][:specialty].present?
+      @specialty = params[:appointment][:specialty]
+      @doctors = Doctor.where(clinic: @appointment.clinic, specialty: @specialty)
+    end
+    if params[:appointment].present? && params[:appointment][:doctor].present?
+      @appointment.doctor = Doctor.find(params[:appointment][:doctor])
+    end
   end
 
   def emergency
