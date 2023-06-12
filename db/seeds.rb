@@ -1,11 +1,33 @@
 require 'faker'
 
+require 'csv'
+
 Doctor.destroy_all
 Appointment.destroy_all
 Clinic.destroy_all
 User.destroy_all
 
+file_path = Rails.root.join('lib', 'seeds', 'hospitais_rio_sp.csv')
+file = File.open(file_path, 'r')
 
+CSV.foreach(file, headers: :first_row, col_sep: ';') do |row|
+  clinic = Clinic.create!(
+    name: row["NOME FANTASIA"].capitalize ,
+    address: row["address"].capitalize ,
+    phone: Faker::PhoneNumber.phone_number,
+    lat: row["LATITUDE"].to_f,
+    long: row["LONGITUDE"].to_f
+  )
+  5.times do
+    doctor = Doctor.new(
+      name: Faker::Name.name,
+      specialty: Doctor::SPECIALTIES.sample,
+      crm: Faker::Number.number(digits: 6),
+      clinic: clinic
+    )
+    doctor.save!
+  end
+end
 
 user_lat = [
   -22.46545, -21.192, -22.117, -22.95649, -22.48589,
@@ -41,26 +63,26 @@ clinic_long = [-44.29, -43.312, -41.77388, -43.47152, -42.84874 ]
   user.save!
 end
 
-5.times do
-  clinic = Clinic.new(
-    name: Faker::Company.name,
-    address: Faker::Address.full_address,
-    phone: Faker::PhoneNumber.phone_number,
-    lat: clinic_lat.sample,
-    long: clinic_long.sample
-  )
-  clinic.save!
-end
+# 5.times do
+#   clinic = Clinic.new(
+#     name: Faker::Company.name,
+#     address: Faker::Address.full_address,
+#     phone: Faker::PhoneNumber.phone_number,
+#     lat: clinic_lat.sample,
+#     long: clinic_long.sample
+#   )
+#   clinic.save!
+# end
 
-10.times do
-  doctor = Doctor.new(
-    name: Faker::Name.name,
-    specialty: Doctor::SPECIALTIES.sample,
-    crm: Faker::Number.number(digits: 6),
-    clinic: Clinic.all.sample
-  )
-  doctor.save!
-end
+# 10.times do
+#   doctor = Doctor.new(
+#     name: Faker::Name.name,
+#     specialty: Doctor::SPECIALTIES.sample,
+#     crm: Faker::Number.number(digits: 6),
+#     clinic: Clinic.all.sample
+#   )
+#   doctor.save!
+# end
 
 30.times do
   appointment = Appointment.new(

@@ -14,6 +14,9 @@
     </div>
   </div>
 
+  <div><%= link_to "Tempo", clinics_path(filter:"time") %></div>
+  <div><%= link_to "Distancia", clinics_path(filter:"distance") %></div>
+
   <div class="clinic-container" data-alert-target="list">
     <% @clinics.each do |clinic| %>
       <% n = NavigationService.new(clinic.long, clinic.lat, current_user.long, current_user.lat) %>
