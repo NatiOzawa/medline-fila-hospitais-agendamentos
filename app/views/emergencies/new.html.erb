@@ -1,0 +1,38 @@
+<h1>Cadastrar emergencia</h1>
+
+<div class="container">
+  <%= simple_form_for @appointment, url: clinic_emergencies_path(@clinic) do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :body_area, as: :check_boxes, collection: ['Cabeça', 'Pescoço', 'Ombros', 'Braços', 'Costas', 'Abdômen', 'Pernas', 'Pés'],
+                    label: "Quais áreas do corpo estão tendo sintomas?" %>
+      </div>
+      <div class="col-md-6">
+        <%= image_tag "ambulancia.png", alt: "Corpo humano", class: "body-image" %>
+      </div>
+    </div>
+
+    <div class="row d-flex">
+      <div class="col-md-12">
+        <%= f.input :pain_scale, as: :radio_buttons, collection: (1..10).to_a,
+                    label: "Qual é a sua escala de dor (de 1 a 10)?" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.input :additional_information, as: :text,
+                    label: "Mais informações:", input_html: { rows: 3 } %>
+      </div>
+    </div>
+
+    <%= f.submit "Create emergency", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<style>
+.body-image {
+  max-width: 100%;
+  height: auto;
+}
+</style>
