@@ -8,7 +8,7 @@
 
       <%= f.input :doctor, label: "Médico", collection: @doctors, selected: @appointment&.doctor&.id, include_blank: 'Selecione o médico', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
-      <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário", prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Date.today.year, end_year: Date.today.year + 10, input_html: { data: { action: "change->filter-clinic#changeDropdown" }}, input_options: { month_names: I18n.t('date.month_names'), abbr_month_names: I18n.t('date.abbr_month_names'), prompt: true } %>
+      <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário" %>
 
       <%= f.submit "Confirmar" %>
       <%= link_to "Voltar", home_path, class: 'btn btn-secondary' %>
