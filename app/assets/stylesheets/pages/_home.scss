@@ -1,17 +1,9 @@
-.grid-1 {
-  display: flex;
-  margin-bottom: 20px;
-  color: #64b6ac;
+.home-cards-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 15px;
 }
 
-.emergency {
-  width: calc(70% - 10px);
-  margin-right: 30px;
-}
-
-.position {
-  width: calc(30% - 10px);
-}
 
 .card-title {
   color: #64b6ac;
@@ -23,53 +15,87 @@
   text-align: center;
 }
 
-.custom-height {
-  height: 300px;
-}
 
-.card-img {
-  height: 300px;
-}
-
-.position-image-container {
-  position: relative;
+.card-emergency {
+  background-image: image-url("ambulancia.png");
+  background-size: cover;
+  background-position: center;
   height: 100%;
-  overflow: hidden;
 }
 
-.card-img-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px;
+.card-position {
+  background-image: image-url("tempo.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 }
+
+
+
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.home-card {
+  height: 100%;
+  min-height: 170px;
+}
+
+@media(max-width: 900px) {
+  .home-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 768px) {
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+  .home-cards-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-new-appointments {
+  background-image: image-url("tempo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+.card-my-appointments {
+  background-image: image-url("tempo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-history {
+  background-image: image-url("tempo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-edit-account {
+  background-image: image-url("tempo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
 
 .next-appointments {
-  width: calc(100%);
   text-align: center;
   color: #64b6ac;
+  min-height: 100px;
   background-color: #c8f5f0;
-  margin-left: 10px;
-  height: 100%;
+  // margin-left: 10px;
+  // height: 100%;
 }
 
 .date_time {
   color: #325c57;
   text-align: center;
-}
-
-.grid-2 {
-  display: flex;
-  margin-top: 20px;
-  color: #64b6ac;
-}
-
-
-.my-appointments, .new-appointments, .history, .edit-account {
-  width: calc(25% - 10px);
-  color: #64b6ac;
-  background-color: #c8f5f0;
-  margin-left: 10px;
-  padding: 70px;
-  box-sizing: border-box;
 }
