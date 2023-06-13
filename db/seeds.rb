@@ -1,28 +1,52 @@
 require 'faker'
 
+require 'csv'
+
 Doctor.destroy_all
 Appointment.destroy_all
 Clinic.destroy_all
 User.destroy_all
 
+file_path = Rails.root.join('lib', 'seeds', 'hospitais_curitiba.csv')
+file = File.open(file_path, 'r')
 
+CSV.foreach(file, headers: :first_row, col_sep: ';') do |row|
+  clinic = Clinic.create!(
+    name: row["NOME FANTASIA"].capitalize ,
+    address: row["address"].capitalize ,
+    phone: Faker::PhoneNumber.phone_number,
+    lat: row["LATITUDE"].to_f,
+    long: row["LONGITUDE"].to_f,
+    emergency_time: rand(15..45)
+  )
+  5.times do
+    doctor = Doctor.new(
+      name: Faker::Name.name,
+      specialty: Doctor::SPECIALTIES.sample,
+      crm: Faker::Number.number(digits: 6),
+      clinic: clinic
+    )
+    doctor.save!
+  end
+end
 
 user_lat = [
-  -22.46545, -21.192, -22.117, -22.95649, -22.48589,
-  -22.65326, -22.611, -22.74109, -22.94244, -22.61405,
-  -22.41432, -22.48869, -22.99898, -21.74852, -22.7177,
-  -22.463, -22.481, 22.3123, -21.42143, -22.67724
+  -25.50838, -25.50792, -25.50515, -25.50207, -25.49719,
+  -25.49154, -25.49121, -25.48998, -25.48979, -25.48879,
+  -25.48496, -25.48482, -25.48457, -25.48258, -25.48162,
+  -25.48024, -25.47888, -25.47673, -25.47655, -25.47502
 ]
 
 user_long = [
-  -44.45686, -41.89575, -43.209, -42.99671, -43.84992,
-  -43.03986, -43.709, -42.78112, -43.05622, -42.40762,
-  -42.95041, -44.10899, -44.30399, -41.31133, -42.02144,
-  -42.653, -42.204, 42.5848, -41.69448, -43.6054 ]
+  -49.26969, -49.30433, -49.32498, -49.28972, -49.30346,
+  -49.26042, -49.3087, -49.28301, -49.236, -49.22336,
+  -49.30228, -49.21186, -49.32535, -49.33529, -49.24638,
+  -49.33687, -49.27295, -49.31636, -49.21804, -49.34356
+ ]
 
-clinic_lat = [-22.42, -22.786, -22.38166, -22.84772, -22.73808 ]
+# clinic_lat = [-22.42, -22.786, -22.38166, -22.84772, -22.73808 ]
 
-clinic_long = [-44.29, -43.312, -41.77388, -43.47152, -42.84874 ]
+# clinic_long = [-44.29, -43.312, -41.77388, -43.47152, -42.84874 ]
 
 
 20.times do |i|
@@ -35,32 +59,32 @@ clinic_long = [-44.29, -43.312, -41.77388, -43.47152, -42.84874 ]
     email: "teste#{i+1}@teste.com",
     password: "123123",
     health_insurance: Faker::Company.name,
-    lat: user_lat.sample,
-    long: user_long.sample
+    lat: user_lat[i],
+    long: user_long[i]
   )
   user.save!
 end
 
-5.times do
-  clinic = Clinic.new(
-    name: Faker::Company.name,
-    address: Faker::Address.full_address,
-    phone: Faker::PhoneNumber.phone_number,
-    lat: clinic_lat.sample,
-    long: clinic_long.sample
-  )
-  clinic.save!
-end
+# 5.times do
+#   clinic = Clinic.new(
+#     name: Faker::Company.name,
+#     address: Faker::Address.full_address,
+#     phone: Faker::PhoneNumber.phone_number,
+#     lat: clinic_lat.sample,
+#     long: clinic_long.sample
+#   )
+#   clinic.save!
+# end
 
-10.times do
-  doctor = Doctor.new(
-    name: Faker::Name.name,
-    specialty: Doctor::SPECIALTIES.sample,
-    crm: Faker::Number.number(digits: 6),
-    clinic: Clinic.all.sample
-  )
-  doctor.save!
-end
+# 10.times do
+#   doctor = Doctor.new(
+#     name: Faker::Name.name,
+#     specialty: Doctor::SPECIALTIES.sample,
+#     crm: Faker::Number.number(digits: 6),
+#     clinic: Clinic.all.sample
+#   )
+#   doctor.save!
+# end
 
 30.times do
   appointment = Appointment.new(

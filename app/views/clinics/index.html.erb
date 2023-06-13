@@ -1,5 +1,34 @@
-<div data-controller="alert" class="container">
+<div class="container">
   <h3 class="text-center my-2">Selecione uma clínica</h3>
+
+  <% if params[:precision]=="true" %>
+    <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
+  <% else %>
+    <p>Sua localização esta correta? <%= current_user.address %></p>
+  <% end %>
+  <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+    <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV["MAPBOX_API_KEY"] %>">
+      <%= text_field_tag :address,
+                  params[:address],
+                  label: "Endereço atual",
+                  class: "d-none",
+                  data: {address_autocomplete_target: "address"}%>
+    </div>
+    <%= submit_tag "Mudar localização", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
+  <% end %>
+  <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+    <div data-controller="emergency">
+      <%= text_field_tag :latitude,
+                  params[:latitude],
+                  class: "d-none",
+                  id: "lat" %>
+      <%= text_field_tag :longitude,
+                  params[:longitude],
+                  class: "d-none",
+                  id: "long" %>
+    </div>
+    <%= submit_tag "Atualizar localização", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
+  <% end %>
 
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
@@ -9,10 +38,13 @@
               class: "form-control",
               placeholder: "Procure uma clínica"
           %>
-        <%= submit_tag "Pesquisar", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Pesquisar", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
       <% end %>
     </div>
   </div>
+
+  <div><%= link_to "Tempo", clinics_path(filter:"time") %></div>
+  <div><%= link_to "Distancia", clinics_path(filter:"distance") %></div>
 
   <div class="clinic-container" data-alert-target="list">
     <% @clinics.each do |clinic| %>
@@ -23,9 +55,11 @@
           <div class="d-flex align-items-center justify-content-between">
             <div class="clinic-details">
               <h5 class="card-title">Nome: <%= clinic.name %></h5>
-              <p class="card-text">Endereço: <%= clinic.address %></p>
+              <p class="card-text">Endereço: <%= clinic.address %>  <%= clinic.lat %> <%= clinic.long %></p>
               <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
               <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+              <p class="card-text">Tempo de espera: <%= clinic.emergency_time %>min</p>
+              <p class="card-text">Tempo total: <%= clinic.emergency_time + (n.duration/60).round(0) %>min</p>
             </div>
             <div class="clinic-actions">
               <%= link_to "Selecionar", new_clinic_emergency_path(clinic), class: "btn btn-primary" %>
