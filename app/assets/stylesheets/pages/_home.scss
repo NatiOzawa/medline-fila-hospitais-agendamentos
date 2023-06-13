@@ -6,25 +6,32 @@
 
 
 .card-title {
-  color: #64b6ac;
+  color: #23423f;
   text-align: center;
 }
 
 .card-text {
-  color: #325c57;
+  color: #23423f;
   text-align: center;
 }
 
 
+.next-appointments {
+  background-image: image-url("hospital.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
 .card-emergency {
-  background-image: image-url("ambulancia.png");
+  background-image: image-url("hospital.png");
   background-size: cover;
   background-position: center;
   height: 100%;
 }
 
 .card-position {
-  background-image: image-url("tempo.png");
+  background-image: image-url("relogio.png");
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -60,26 +67,26 @@
 }
 
 .card-new-appointments {
-  background-image: image-url("ambulancia.png");
+  background-image: image-url("agendar.png");
   background-size: cover;
   background-position: center;
 }
 
 
 .card-my-appointments {
-  background-image: image-url("ambulancia.png");
+  background-image: image-url("agendados.png");
   background-size: cover;
   background-position: center;
 }
 
 .card-history {
-  background-image: image-url("ambulancia.png");
+  background-image: image-url("historico.png");
   background-size: cover;
   background-position: center;
 }
 
 .card-edit-account {
-  background-image: image-url("ambulancia.png");
+  background-image: image-url("update.png");
   background-size: cover;
   background-position: center;
 }
