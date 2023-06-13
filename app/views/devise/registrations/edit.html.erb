@@ -55,7 +55,7 @@
                         autofocus: true,
                         input_html: { autocomplete: "address", style: "text-transform: capitalize;" }%>
             <%= f.input :phone,
-                        label: "telefone",
+                        label: "Telefone",
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "phone" }%>
@@ -67,8 +67,9 @@
           </div>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Update", class: "btn btn-primary" %>
-          <%= link_to "Voltar", home_path, class: "btn btn-primary" %>
+          <%= f.button :submit, "Atualizar", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s; text-decoration: none;" %>
+          <%= link_to "Voltar", home_path, style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s; text-decoration: none;" %>
+
         </div>
       <% end %>
     </div>
