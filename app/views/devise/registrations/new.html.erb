@@ -20,7 +20,10 @@
                       label: "Data de Nascimento",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "date_of_birth" }%>
+                      input_html: { autocomplete: "date_of_birth" },
+                      start_year: Date.today.year - 100,
+                      end_year: Date.today.year,
+                      order: [:day, :month, :year]%>
           <%= f.input :address,
                       label: "Endereço",
                       input_html: {class: "d-none", data: {address_autocomplete_target: "address"}},
