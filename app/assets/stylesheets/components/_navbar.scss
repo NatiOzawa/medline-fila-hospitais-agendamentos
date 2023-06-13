@@ -33,8 +33,11 @@ justify-content: center;
 color:aqua;
 }
 .navbar-items ul > li {
-  margin-right: 100px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+
+}
+
+.navbar {
+  background: #F4F4F4;
 }
