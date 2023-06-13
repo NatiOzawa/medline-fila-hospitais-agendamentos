@@ -1,62 +1,67 @@
 <link rel="stylesheet" href="pages/_home.scss">
 
+<body>
 <div class="container">
-  <div class="home-grid-1">
-    <div class="home-emergency">
+  <div class="grid-1">
+    <div class="emergency">
       <div class="position-image-container">
           <%= image_tag "ambulancia.png", class: "card-img custom-height" %>
         <div class="card-img-overlay">
-          <%= link_to clinics_path, style: "text-decoration: none; color: white;" do %>
-            <h5 class="card-title">Emergência</h5>
+          <%= link_to clinics_path, style: "text-decoration: none" do %>
+            <h2 class="card-title"><strong>Emergência</strong></h2>
           <% end %>
-          <p class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</p>
+          <h5 class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</h5>
         </div>
       </div>
     </div>
 
-    <div class="home-position">
+    <div class="position">
       <div class="position-image-container">
         <%= image_tag "tempo.png", class: "card-img custom-height" %>
         <div class="card-img-overlay">
-          <h5 class="card-title">Posição na fila</h5>
-          <p class="card-text">Tempo total.</p>
+          <h2 class="card-title"><strong>Tempo de espera: </strong></h2>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="home-next-appointments" style="color: white;">
-    <% if Appointment.next(current_user).blank? %>
-      <p> Não tem agendamento no momento </p>
-    <% else %>
-      <p class="white-text">Próximo agendamento</p>
-      <%= l Appointment.next(current_user).time, format: "%d/%m/%y %H:%M" %>
-    <% end  %>
-  </div>
+    <div class="next-appointments">
+        <% if Appointment.next(current_user).blank? %>
+          <h2><strong> Não tem agendamento no momento </strong></h2>
+        <% else %>
+          <h2 class="white-text"><strong>Próximo agendamento</strong></h2>
+          <time>
+            <h5 class="date_time">
+              <%= l Appointment.next(current_user).time, format: "%d/%m/%y %H:%M" %>
+            </h5>
+          </time>
+        <% end  %>
+    </div>
 
-  <div class="home-grid-2">
-    <div class="home-new-appointments">
-      <%= link_to new_appointment_path, style: "text-decoration: none; color: white;" do %>
+  <div class="grid-2">
+    <div class="new-appointments">
+      <%= link_to new_appointment_path, style: "text-decoration: none" do %>
         <p>Agendar Consulta</p>
       <% end %>
     </div>
 
-    <div class="home-my-appointments">
-      <%= link_to my_appointments_appointments_path, style: "text-decoration: none; color: white;" do %>
+    <div class="my-appointments">
+      <%= link_to my_appointments_appointments_path, style: "text-decoration: none" do %>
         <p>Meus Agendamentos</p>
       <% end %>
     </div>
 
-    <div class="home-history">
-      <%= link_to history_appointments_path, style: "text-decoration: none; color: white;"  do %>
+    <div class="history">
+      <%= link_to history_appointments_path, style: "text-decoration: none"  do %>
         <p>Histórico de Atendimento</p>
       <% end %>
     </div>
 
-    <div class="home-edit-account">
-      <%= link_to edit_user_registration_path, style: "text-decoration: none; color: white;" do %>
+    <div class="edit-account">
+      <%= link_to edit_user_registration_path, style: "text-decoration: none" do %>
         <p>Atualizar Meus Dados</p>
       <% end %>
     </div>
   </div>
 </div>
+</body>
