@@ -4,15 +4,16 @@ h1 {
   color: #64B6AC;
 }
 
-.container.formappoint {
+.container.meus-agendamentos {
   margin-top: 10px;
+  align-items: center;
 }
 
 .texto {
   margin-bottom: 20px;
 }
 
-.card.formappoint {
+.card.agendamentos {
   padding: 30px;
   border-radius: 30px;
   background: #E7EBEB;
@@ -20,12 +21,15 @@ h1 {
              -15px -15px 30px #ffffff;
 }
 
-.form-select {
-  padding: 10px;
-  border-radius: 30px;
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 10px;
 }
 
-.form-control {
-  padding: 10px;
+.my_appointments {
+  border: 2px solid #64B6AC;
   border-radius: 30px;
+  padding: 10px;
 }

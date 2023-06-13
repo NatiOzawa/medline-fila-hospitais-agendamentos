@@ -1,24 +1,26 @@
-
-<div class="container">
-  <h1 class= "text-center">Meus agendamentos</h1>
-
-  <div class="my-appointments">
-      <% Appointment.upcoming(current_user).each do |appointment| %>
-          <ul>
-          <li><p>
-            <p>Data: <%= l appointment.time, format: "%d/%m/%y %H:%M" %></p>
-            <% if appointment.emergency  %>
-              <p> Emergência </p>
-            <% end %>
-            <% if appointment.doctor  %>
-              <p>Especialidade: <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
-            <% else %>
-              <p>Médico: Plantão </p>
-            <% end %>
-            <p>Clinica: <%=  appointment.clinic.name %></p>
-            <p>Endereço: <%=  appointment.clinic.address %></p>
-          </p></li>
-          </ul>
-        <% end %>
+<div class="container meus-agendamentos d-flex justify-content-center">
+  <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="texto">
+      <h1><strong> Meus Agendamentos </h1></strong>
     </div>
+    <div class="card agendamentos">
+      <% Appointment.upcoming(current_user).each do |appointment| %>
+        <ul class="my_appointments">
+        <p>
+          <p><strong>Data:</strong> <%= l appointment.time, format: "%d/%m/%y - %H:%M" %></p>
+          <% if appointment.emergency  %>
+            <p><strong> Emergência </p></strong>
+          <% end %>
+          <% if appointment.doctor  %>
+            <p><strong>Especialidade:</strong> <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
+          <% else %>
+            <p><strong>Médico:</strong> Plantão </p>
+          <% end %>
+          <p><strong>Clínica:</strong> <%=  appointment.clinic.name %></p>
+          <p><strong>Endereço:</strong> <%=  appointment.clinic.address %></p>
+        </p>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>

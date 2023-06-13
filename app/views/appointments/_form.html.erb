@@ -1,17 +1,21 @@
-<div class="container d-flex justify-content-center">
+<div class="container formappoint d-flex justify-content-center">
   <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
-    <h1> Agendar Consulta </h1>
-    <%= simple_form_for @appointment, data: { controller: "filter-clinic", "filter-clinic-target": "form" } do |f| %>
-      <%= f.input :clinic, label: "Clínica", collection: Clinic.all, selected: @appointment&.clinic&.id, include_blank: 'Selecione a clínica', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
+    <div class="texto">
+      <h1><strong>Agendar Consulta</h1></strong>
+    </div>
+      <div class="card formappoint">
+        <%= simple_form_for @appointment, data: { controller: "filter-clinic", "filter-clinic-target": "form" } do |f| %>
+          <%= f.input :clinic, label: "Clínica", collection: Clinic.all, selected: @appointment&.clinic&.id, include_blank: 'Selecione a clínica', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
-      <%= f.input :specialty, label: "Especialidade", collection: @specialties, selected: @specialty, include_blank: 'Selecione a especialidade', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
+          <%= f.input :specialty, label: "Especialidade", collection: @specialties, selected: @specialty, include_blank: 'Selecione a especialidade', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
-      <%= f.input :doctor, label: "Médico", collection: @doctors, selected: @appointment&.doctor&.id, include_blank: 'Selecione o médico', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
+          <%= f.input :doctor, label: "Médico", collection: @doctors, selected: @appointment&.doctor&.id, include_blank: 'Selecione o médico', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
-      <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário" %>
+          <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário" %>
 
-      <%= f.submit "Confirmar" %>
-      <%= link_to "Voltar", home_path, class: 'btn btn-secondary' %>
-    <% end %>
+          <%= f.submit "Confirmar" %>
+          <%= link_to "Voltar", home_path, class: 'btn btn-secondary' %>
+        <% end %>
+      </div>
   </div>
 </div>
