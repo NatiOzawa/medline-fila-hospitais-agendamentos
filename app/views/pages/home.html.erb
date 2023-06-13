@@ -6,7 +6,7 @@
       <div class="position-image-container">
           <%= image_tag "ambulancia.png", class: "card-img" %>
         <div class="card-img-overlay" data-controller="emergency">
-            <h5 class="card-title">Emergência</h5>
+            
           <%#= form_with url: clinics_path, method: :get, class: "d-flex" do %>
             <%#= text_field_tag :latitude,
                   params[:latitude],
@@ -16,7 +16,10 @@
                   params[:longitude],
                   class: "d-none",
                   id: "long" %>
-            <%= submit_tag "Emergência", name: "", class: "btn btn-primary" %>
+            <%#= submit_tag "Emergência", name: "", class: "btn btn-primary" %>
+          <%# end %>
+          <%= link_to clinics_path, style: "text-decoration: none; color: white;" do %>
+            <h5 class="card-title">Emergência</h5>
           <% end %>
           <p class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</p>
         </div>
