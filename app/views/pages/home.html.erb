@@ -7,12 +7,12 @@
           <%= image_tag "ambulancia.png", class: "card-img" %>
         <div class="card-img-overlay" data-controller="emergency">
             <h5 class="card-title">Emergência</h5>
-          <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :latitude,
+          <%#= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+            <%#= text_field_tag :latitude,
                   params[:latitude],
                   class: "d-none",
                   id: "lat" %>
-            <%= text_field_tag :longitude,
+            <%#= text_field_tag :longitude,
                   params[:longitude],
                   class: "d-none",
                   id: "long" %>

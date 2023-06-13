@@ -26,9 +26,11 @@
           <div class="d-flex align-items-center justify-content-between">
             <div class="clinic-details">
               <h5 class="card-title">Nome: <%= clinic.name %></h5>
-              <p class="card-text">Endereço: <%= clinic.address %></p>
+              <p class="card-text">Endereço: <%= clinic.address %>  <%= clinic.lat %> <%= clinic.long %></p>
               <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
               <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+              <p class="card-text">Tempo de espera: <%= clinic.emergency_time %>min</p>
+              <p class="card-text">Tempo total: <%= clinic.emergency_time + (n.duration/60).round(0) %>min</p>
             </div>
             <div class="clinic-actions">
               <%= link_to "Selecionar", new_clinic_emergency_path(clinic), class: "btn btn-primary" %>
