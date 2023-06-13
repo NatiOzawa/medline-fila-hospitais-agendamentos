@@ -1,5 +1,5 @@
 <div class="container d-flex align-items-center justify-content-center">
-  <div class="row col-xs-12 col-sm-4 col-sm-offset-4">
+  <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="edit-card">
       <h2>Editar Conta</h2>
 
@@ -15,42 +15,51 @@
             <% end %>
 
             <%= f.input :password,
-                        hint: "leave it blank if you don't want to change it",
+                        label: "Nova Senha",
+                        hint: "Deixe em branco caso não queira alterar",
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
+                        label: "Confirme sua Nova Senha",
                         required: false,
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :current_password,
-                        hint: "we need your current password to confirm your changes",
+                        label: "Senha atual",
+                        hint: "precisamos da sua senha atual para confirmar as alterações",
                         required: true,
                         input_html: { autocomplete: "current-password" } %>
           </div>
           <div class="dados-pessoais">
             <%= f.input :first_name,
+                        label: "Nome",
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+                        input_html: { autocomplete: "first_name", style: "text-transform: capitalize;" }%>
             <%= f.input :last_name,
+                        label: "Sobrenome",
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+                        input_html: { autocomplete: "last_name", style: "text-transform: capitalize;" }%>
             <%= f.input :date_of_birth,
+                        label: "Data de Nascimento",
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "date_of_birth" }%>
             <%= f.input :address,
+                        label: "Endereço",
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email", style: "text-transform: capitalize;" }%>
+                        input_html: { autocomplete: "address", style: "text-transform: capitalize;" }%>
             <%= f.input :phone,
+                        label: "telefone",
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "phone" }%>
             <%= f.input :health_insurance,
-                        required: true,
+                        label: "Plano de Saúde (opicional)",
+                        required: false,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "health_insurance" }%>
           </div>
         </div>
         <div class="form-actions">

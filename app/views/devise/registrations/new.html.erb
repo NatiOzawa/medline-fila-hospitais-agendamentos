@@ -17,7 +17,7 @@
                       autofocus: true,
                       input_html: { autocomplete: "last_name", style: "text-transform: capitalize;" }%>
           <%= f.input :date_of_birth,
-                      label: "Data de nascimento",
+                      label: "Data de Nascimento",
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "date_of_birth" }%>
@@ -31,7 +31,7 @@
                       autofocus: true,
                       input_html: { autocomplete: "phone" }%>
           <%= f.input :health_insurance,
-                      label: "Plano de saúde (opicional)",
+                      label: "Plano de Saúde (opicional)",
                       autofocus: true,
                       input_html: { autocomplete: "health_insurance" }%>
           <%= f.input :email,
@@ -41,7 +41,7 @@
           <%= f.input :password,
                       label: "Senha",
                       required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      hint: ("#{@minimum_password_length} mínimo de caracteres" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       label: "Confirme sua senha",
