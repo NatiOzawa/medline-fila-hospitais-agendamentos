@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   position: fixed;
@@ -29,8 +29,11 @@
   opacity: 1;
 }
 
-.footer .fa-heart {
-  color: #D23333;
+.footer-content img {
+  width: 50px;
+  height: auto;
+  margin-right: 5px;
+  margin-left: 600px;
 }
 
 .footer-content {

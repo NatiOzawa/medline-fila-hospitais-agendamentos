@@ -1,4 +1,6 @@
 class Appointment < ApplicationRecord
+  attr_accessor :specialty
+
   belongs_to :user
   belongs_to :doctor, optional: true
   belongs_to :clinic

@@ -26,10 +26,18 @@
 }
 
 .navbar-items {
-width: 70%;
+width: 50%;
+display: flex;
 align-items: center;
+justify-content: center;
+color:aqua;
 }
 .navbar-items ul > li {
-  margin-right: 150px;
-  align-items: center;
+  display: flex;
+  text-align: center;
+
+}
+
+.navbar {
+  background: #F4F4F4;
 }
