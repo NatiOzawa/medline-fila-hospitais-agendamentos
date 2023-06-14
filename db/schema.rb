@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_172900) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_172538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_172900) do
     t.string "body_area", default: [], array: true
     t.integer "pain_scale"
     t.text "additional_information"
+    t.integer "delay_time"
     t.index ["clinic_id"], name: "index_appointments_on_clinic_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
