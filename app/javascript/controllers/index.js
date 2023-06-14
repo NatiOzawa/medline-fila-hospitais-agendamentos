@@ -16,5 +16,8 @@ application.register("emergency", EmergencyController)
 import FilterClinicController from "./filter_clinic_controller"
 application.register("filter-clinic", FilterClinicController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
