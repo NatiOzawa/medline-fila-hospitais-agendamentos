@@ -4,39 +4,36 @@
   grid-gap: 15px;
 }
 
-
 .card-title {
   color: #23423f;
   text-align: center;
 }
 
-.card-text {
-  color: #23423f;
-  text-align: center;
-}
-
-
-.next-appointments {
-  background-image: image-url("hospital.png");
+.next-appointments,
+.card-emergency,
+.card-position,
+.card-new-appointments,
+.card-my-appointments,
+.card-history,
+.card-edit-account {
   background-size: cover;
   background-position: center;
-  height: 100%;
+  border-radius: 30px;
+  background: #E7EBEB;
+  box-shadow: 10px 10px 30px #bebebe;
+}
+
+.next-appointments {
+  background-image: image-url("proximos.png");
 }
 
 .card-emergency {
   background-image: image-url("hospital.png");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
 }
 
 .card-position {
   background-image: image-url("relogio.png");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
 }
-
 
 
 .home-cards {
@@ -68,38 +65,26 @@
 
 .card-new-appointments {
   background-image: image-url("agendar.png");
-  background-size: cover;
-  background-position: center;
 }
 
 
 .card-my-appointments {
   background-image: image-url("agendados.png");
-  background-size: cover;
-  background-position: center;
 }
 
 .card-history {
   background-image: image-url("historico.png");
-  background-size: cover;
-  background-position: center;
 }
 
 .card-edit-account {
   background-image: image-url("update.png");
-  background-size: cover;
-  background-position: center;
 }
-
 
 
 .next-appointments {
   text-align: center;
-  color: #64b6ac;
+  color: #23423f;
   min-height: 100px;
-  background-color: #c8f5f0;
-  // margin-left: 10px;
-  // height: 100%;
 }
 
 .date_time {
