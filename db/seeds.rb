@@ -50,11 +50,12 @@ user_long = [
 
 
 20.times do |i|
+  result = Geocoder.search([user_lat[i], user_long[i]]).first
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 75),
-    address: Faker::Address.full_address,
+    address: "#{result.street}, #{result.house_number.nil? || result.house_number.empty? ? 'S/N' : result.house_number} - #{result.state}",
     phone: Faker::PhoneNumber.phone_number,
     email: "teste#{i+1}@teste.com",
     password: "123123",

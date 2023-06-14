@@ -4,7 +4,7 @@
   <% if params[:precision]=="true" %>
     <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
   <% else %>
-    <p>Sua localização esta correta? <%= current_user.address %></p>
+    <p>Sua localização esta correta? <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %></p>
   <% end %>
   <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
     <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV["MAPBOX_API_KEY"] %>">
