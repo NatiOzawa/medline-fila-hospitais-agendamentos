@@ -22,7 +22,9 @@
 .card-my-appointments,
 .card-history,
 .card-edit-account {
+  background-repeat: no-repeat;
   background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 100%;
   border: 2px solid #bebebe;
@@ -32,10 +34,13 @@
 
 .card-emergency {
   background-image: image-url("hospital.png");
+  max-width: 100%;
+  background-color: #ccdde1;
 }
 
 .card-position {
   background-image: image-url("relogio.png");
+  background-color: #c7e6e6;
 }
 
 .next-appointments {
@@ -43,7 +48,7 @@
   text-align: center;
   color: #64b6ac;
   min-height: 100px;
-  background-color: #c8f5f0;
+  background-color: #bbd6d7;
 }
 
 .home-cards {
@@ -74,16 +79,20 @@
 
 .card-new-appointments {
   background-image: image-url("agendar.png");
+  background-color: #cadde1;
 }
 
 .card-my-appointments {
   background-image: image-url("agendados.png");
+  background-color: #d0e6ed;
 }
 
 .card-history {
   background-image: image-url("historico.png");
+  background-color: #c6dde1;
 }
 
 .card-edit-account {
   background-image: image-url("update.png");
+  background-color: #cce2e3;
 }
