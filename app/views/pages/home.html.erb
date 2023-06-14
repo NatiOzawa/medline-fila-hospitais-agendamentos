@@ -2,12 +2,11 @@
 
 <div class="container">
   <div class="home-cards-top" style="min-height: 300px;">
-    <div class="card-emergency d-flex align-items-center">
-      <div class="my-auto mx-3">
+    <div class="card-emergency d-flex align-items-center justify-content-center">
         <%= link_to clinics_path, style: "text-decoration: none" do %>
           <h3 class="card-title"><strong>Emergência</strong></h3>
         <% end %>
-      </div>
+
     </div>
 
     <div class="card-position d-flex flex-column align-items-center">
@@ -40,11 +39,11 @@
         <div class="next-appointments d-flex flex-column align-items-center">
           <div class="my-auto mx-3">
             <% if Appointment.next(current_user).blank? %>
-              <h2><strong> Não tem agendamento no momento </strong></h2>
+              <h4 class="card-title"><strong> Não há agendamentos no momento </strong></h4>
             <% else %>
-              <h3 class="white-text"><strong>Próximo agendamento</strong></h3>
+              <h4 class="card-title"><strong>Próximo agendamento:</strong></h4>
               <time>
-                <h3 class="date_time">
+                <h3 class="card-text">
                   <%= l Appointment.next(current_user).time, format: "%d/%m/%y %H:%M" %>
                 </h3>
               </time>
@@ -58,7 +57,7 @@
     <div class="card-new-appointments home-card d-flex flex-column align-items-center">
       <div class="my-auto mx-3">
           <%= link_to new_appointment_path, style: "text-decoration: none" do %>
-            <h5 class="card-title"><strong>Agendar Consulta</strong></h5>
+            <h4 class="card-title"><strong>Agendar Consulta</strong></h4>
           <% end %>
       </div>
     </div>
@@ -67,7 +66,7 @@
     <div class="card-my-appointments home-card d-flex flex-column align-items-center">
       <div class="my-auto mx-3">
         <%= link_to my_appointments_appointments_path, style: "text-decoration: none" do %>
-          <h5 class="card-title"><strong>Meus Agendamentos</strong></h5>
+          <h4 class="card-title"><strong>Meus Agendamentos</strong></h4>
         <% end %>
       </div>
     </div>
@@ -75,7 +74,7 @@
     <div class="card-history home-card d-flex flex-column align-items-center">
       <div class="my-auto mx-3">
         <%= link_to history_appointments_path, style: "text-decoration: none"  do %>
-          <h5 class="card-title"><strong>Histórico de Atendimento</strong></h5>
+          <h4 class="card-title"><strong>Histórico de Atendimento</strong></h4>
         <% end %>
       </div>
     </div>
@@ -83,7 +82,7 @@
     <div class="card-edit-account home-card d-flex flex-column align-items-center">
       <div class="my-auto mx-3">
         <%= link_to edit_user_registration_path, style: "text-decoration: none" do %>
-          <h5 class="card-title"><strong>Atualizar Meus Dados</strong></h5>
+          <h4 class="card-title"><strong>Atualizar Meus Dados</strong></h4>
         <% end %>
       </div>
     </div>
