@@ -1,0 +1,35 @@
+h1 {
+  text-align: center;
+  align-items: center;
+  color: #64B6AC;
+}
+
+.container.meus-agendamentos {
+  margin-top: 10px;
+  align-items: center;
+}
+
+.texto {
+  margin-bottom: 20px;
+}
+
+.card.agendamentos {
+  padding: 20px;
+  border-radius: 30px;
+  background: #E7EBEB;
+  box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+.my_appointments {
+  border: 2px solid #bebebe;
+  border-radius: 20px;
+  padding: 6px;
+}
