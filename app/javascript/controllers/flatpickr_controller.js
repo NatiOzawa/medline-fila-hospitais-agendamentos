@@ -8,7 +8,7 @@ export default class extends Controller {
     flatpickr(this.dateTarget, {
       enableTime: false,
       minDate: "today",
-      maxDate: "30.12.23",
+      maxDate: new Date(2023, 11, 29),
       altInput: true,
       dateFormat: "d-m-y",
       time_24hr: true,
@@ -17,7 +17,7 @@ export default class extends Controller {
 
       disable: [
         function(date) {
-          return date.getDay() === 6 || date.getDay() === 0; // Desabilita seleção nos sábados (6) e domingos (0)
+          return date.getDay() === 6 || date.getDay() === 0;
         }
       ],
 
