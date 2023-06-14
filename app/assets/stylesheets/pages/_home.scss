@@ -10,9 +10,18 @@
   text-align: center;
 }
 
-.card-text {
-  color: #23423f;
-  text-align: center;
+.next-appointments,
+.card-emergency,
+.card-position,
+.card-new-appointments,
+.card-my-appointments,
+.card-history,
+.card-edit-account {
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  background: #E7EBEB;
+  box-shadow: 10px 10px 30px #bebebe;
 }
 
 .card-emergency,
@@ -34,6 +43,7 @@
 
 .card-emergency {
   background-image: image-url("hospital.png");
+
   max-width: 100%;
   background-color: #ccdde1;
 }

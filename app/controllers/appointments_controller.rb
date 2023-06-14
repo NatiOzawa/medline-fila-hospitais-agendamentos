@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
     @doctors = []
     if params[:appointment].present? && params[:appointment][:clinic].present?
       @appointment.clinic = Clinic.find(params[:appointment][:clinic])
-      @specialties = @appointment.clinic.doctors.pluck(:specialty)
+      @specialties = @appointment.clinic.doctors.distinct.pluck(:specialty)
     end
     if params[:appointment].present? && params[:appointment][:specialty].present?
       @specialty = params[:appointment][:specialty]
@@ -39,6 +39,9 @@ class AppointmentsController < ApplicationController
     @clinic = @doctor.clinic
     @appointment.doctor = @doctor
     @appointment.clinic = @clinic
+    date_time = "#{params[:appointment][:time]} #{params[:appointment]['created_at(4i)']}:#{params[:appointment]['created_at(5i)']} -03"
+    date = DateTime.strptime(date_time, '%d-%m-%y %H:%M %z')
+    @appointment.time = date
     if @appointment.save
       redirect_to my_appointments_appointments_path
     else

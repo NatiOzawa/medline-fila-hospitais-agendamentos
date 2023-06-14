@@ -5,13 +5,16 @@
     </div>
       <div class="card formappoint">
         <%= simple_form_for @appointment, data: { controller: "filter-clinic", "filter-clinic-target": "form" }, remote: true do |f| %>
+        
           <%= f.input :clinic, label: "Clínica", collection: Clinic.all.map{|clinic| [clinic.name.upcase, clinic.id]}, selected: @appointment&.clinic&.id, include_blank: 'Selecione a clínica', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
           <%= f.input :specialty, label: "Especialidade", collection: @specialties, selected: @specialty, include_blank: 'Selecione a especialidade', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
           <%= f.input :doctor, label: "Médico", collection: @doctors, selected: @appointment&.doctor&.id, include_blank: 'Selecione o médico', input_html: { data: { action: "change->filter-clinic#changeDropdown" }} %>
 
-          <%= f.input :time, as: :datetime, order: [:day, :month, :year], minute_step: 15, label: "Data e Horário" %>
+          <%= f.input :time, as: :string, order: [:day, :month, :year], minute_step: 15, label: "Data", wrapper_html: {data: {controller: "flatpickr"}}, input_html: {data: {flatpickr_target: "date"}} %>
+
+          <%= f.input :created_at, as: :time, :minute_step => 15, required: true, label: "Horário" %>
 
           <%= f.submit "Confirmar", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
           <%= link_to "Voltar", home_path, style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s; text-decoration: none;" %>
