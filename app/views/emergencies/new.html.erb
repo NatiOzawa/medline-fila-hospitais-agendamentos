@@ -1,15 +1,17 @@
-<h1>Cadastrar emergencia</h1>
+<h1><strong>Cadastrar emergencia</h1></strong>
 
-<div class="container">
+<div class="container emergencia d-flex justify-content-center">
   <%= simple_form_for @appointment, url: clinic_emergencies_path(@clinic) do |f| %>
-    <div class="row">
-      <div class="col-md-6">
-        <%= f.input :body_area, as: :check_boxes, collection: ['Cabeça', 'Pescoço', 'Ombros', 'Braços', 'Costas', 'Abdômen', 'Pernas', 'Pés'],
-                    label: "Quais áreas do corpo estão tendo sintomas?" %>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag "ambulancia.png", alt: "Corpo humano", class: "body-image" %>
-      </div>
+    <div class="row emergencia col-xs-12 col-sm-6 col-sm-offset-3">
+      <ul class="emergencias">
+        <div class="areas col-md-6">
+          <%= f.input :body_area, as: :check_boxes, collection: ['Cabeça', 'Pescoço', 'Ombros', 'Braços', 'Costas', 'Abdômen', 'Pernas', 'Pés'],
+                      label: "Quais áreas do corpo estão tendo sintomas?" %>
+        </div>
+        <div class="corpo col-md-6">
+          <%= image_tag "corpo.png", alt: "Corpo humano", class: "body-image" %>
+        </div>
+      </ul>
     </div>
 
     <div class="row d-flex">

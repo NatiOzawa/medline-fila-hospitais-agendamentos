@@ -95,6 +95,7 @@ end
     clinic: Clinic.all.sample,
     emergency: [true, false].sample,
     date_position: Faker::Number.between(from: 1, to: 20)
+    delay_time: [0,1].sample * rand(0..25)
   )
   appointment.save!
 end

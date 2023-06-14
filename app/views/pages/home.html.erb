@@ -13,7 +13,8 @@
 
     <div class="card-position d-flex flex-column align-items-center">
         <div class="my-auto mx-3">
-          <h3 class="card-title"><strong>Tempo de espera: </strong></h3>
+          <h3 class="card-title"><strong>Tempo até Atendimento: </strong></h3>
+          <p><%= ((Appointment.next(current_user).time - Time.current)/60).round(0) %> minutos</p>
         </div>
     </div>
   </div>
