@@ -11,9 +11,27 @@
     </div>
 
     <div class="card-position d-flex flex-column align-items-center">
-        <div class="my-auto mx-3">
-          <h3 class="card-title"><strong>Tempo de espera: </strong></h3>
-        </div>
+      <div class="my-auto mx-3">
+        <% if Appointment.next(current_user).blank? %>
+          <h2><strong>Não tem agendamento no momento</strong></h2>
+        <% else %>
+          <h3 class="white-text"><strong>Tempo até Atendimento:</strong></h3>
+          <time>
+            <h3 class="date_time">
+              <% if ((Appointment.next(current_user).time - Time.current)/60).round(0)>59 %>
+                <p>
+                  <% time_difference = Appointment.next(current_user).time - Time.current %>
+                  <% hours = (time_difference / 3600).floor %>
+                  <% minutes = ((time_difference % 3600) / 60).round %>
+                  <strong><%= "#{hours}:#{minutes.to_s.rjust(2, '0')}" " Horas" %></strong>
+                </p>
+              <% else %>
+                <p><strong><%= ((Appointment.next(current_user).time - Time.current)/60).round(0)  %> minutos</p></strong>
+              <% end %>
+            </h3>
+          </time>
+        <% end %>
+      </div>
     </div>
   </div>
 
