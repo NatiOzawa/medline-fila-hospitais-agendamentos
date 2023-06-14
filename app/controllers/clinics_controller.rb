@@ -1,6 +1,6 @@
 class ClinicsController < ApplicationController
   def index
-    @clinics = Clinic.near([current_user.current_lat, current_user.current_long], 200, units: :km)
+    @clinics = Clinic.near([current_user.current_lat, current_user.current_long], 50, units: :km)
     if params[:query].present?
       sql_subquery = <<~SQL
         clinics.name ILIKE :query
@@ -26,7 +26,7 @@ class ClinicsController < ApplicationController
       results = Geocoder.search(params[:address])
       current_user.update_attribute("current_lat", results.first.coordinates[0] ) if results.first.coordinates
       current_user.update_attribute("current_long", results.first.coordinates[1] ) if results.first.coordinates
-      @clinics = Clinic.near([current_user.current_lat, current_user.current_long], 200, units: :km)
+      @clinics = Clinic.near([current_user.current_lat, current_user.current_long], 50, units: :km)
       @clinics = @clinics.sort_by do |clinic|
         n = NavigationService.new(clinic.long, clinic.lat, current_user.long, current_user.lat)
         n.calculate

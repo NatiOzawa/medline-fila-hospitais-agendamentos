@@ -4,7 +4,7 @@
   <div class="home-cards-top" style="min-height: 300px;">
     <div class="card-emergency d-flex align-items-center">
       <div class="my-auto mx-3">
-        <%= link_to clinics_path, style: "text-decoration: none" do %>
+        <%= link_to clinics_path, style: "text-decoration: none", "data-controller": "alert", "data-action": "click->alert#connect" do %>
           <h3 class="card-title"><strong>Emergência</strong></h3>
         <% end %>
         <h5 class="card-text">Se você apresenta risco de vida, lesões, crises, faturas, hemorragias, convulsões, falta de ar ou outros, peça ajuda.</h5>
