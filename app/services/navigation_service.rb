@@ -9,7 +9,7 @@ class NavigationService
   end
 
   def calculate
-    url = "https://api.mapbox.com/directions/v5/mapbox/driving/#{@longitude1},#{@latitude1};#{@longitude2},#{@latitude2}?access_token=#{ENV['MAPBOX_API_KEY']}"
+    url = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/#{@longitude1},#{@latitude1};#{@longitude2},#{@latitude2}?access_token=#{ENV['MAPBOX_API_KEY']}"
 
     response = JSON.parse(HTTParty.get(url).body)
 
