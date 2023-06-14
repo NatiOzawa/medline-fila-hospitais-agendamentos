@@ -1,9 +1,9 @@
+
 .home-cards-top {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 15px;
 }
-
 
 .card-title {
   color: #23423f;
@@ -15,29 +15,41 @@
   text-align: center;
 }
 
-
-.next-appointments {
-  background-image: image-url("hospital.png");
+.card-emergency,
+.card-position,
+.next-appointments,
+.card-new-appointments,
+.card-my-appointments,
+.card-history,
+.card-edit-account {
+  background-repeat: no-repeat;
   background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 100%;
+  border: 2px solid #bebebe;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px #bebebe;
 }
 
 .card-emergency {
   background-image: image-url("hospital.png");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
+  max-width: 100%;
+  background-color: #ccdde1;
 }
 
 .card-position {
   background-image: image-url("relogio.png");
-  background-size: cover;
-  background-position: center;
-  height: 100%;
+  background-color: #c7e6e6;
 }
 
-
+.next-appointments {
+  background-image: image-url("proximos.png");
+  text-align: center;
+  color: #64b6ac;
+  min-height: 100px;
+  background-color: #bbd6d7;
+}
 
 .home-cards {
   display: grid;
@@ -56,7 +68,6 @@
   }
 }
 
-
 @media(max-width: 768px) {
   .home-cards {
     grid-template-columns: 1fr;
@@ -68,41 +79,20 @@
 
 .card-new-appointments {
   background-image: image-url("agendar.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #cadde1;
 }
-
 
 .card-my-appointments {
   background-image: image-url("agendados.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #d0e6ed;
 }
 
 .card-history {
   background-image: image-url("historico.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #c6dde1;
 }
 
 .card-edit-account {
   background-image: image-url("update.png");
-  background-size: cover;
-  background-position: center;
-}
-
-
-
-.next-appointments {
-  text-align: center;
-  color: #64b6ac;
-  min-height: 100px;
-  background-color: #c8f5f0;
-  // margin-left: 10px;
-  // height: 100%;
-}
-
-.date_time {
-  color: #325c57;
-  text-align: center;
+  background-color: #cce2e3;
 }
