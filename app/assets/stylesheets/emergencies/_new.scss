@@ -2,14 +2,8 @@
 width: 30%;
 }
 
-
-
-.row.emergencia {
+.emergencia {
   width: 100%;
-}
-
-.areas {
-
 }
 
 
@@ -26,4 +20,35 @@ h1 {
   border: 2px solid #bebebe;
   border-radius: 20px;
   padding: 6px;
+}
+
+.container.emergencia {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.emergencia .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.areas, .corpo {
+  flex-basis: 48%;
+  margin-bottom: 1rem;
+}
+
+.body-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.radio-buttons-container {
+  display: flex;
+}
+
+.radio-buttons-container label {
+  margin-right: 10px;
 }
