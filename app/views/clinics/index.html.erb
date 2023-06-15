@@ -1,3 +1,6 @@
+<div class="button">
+  <%= link_to "Voltar", home_path, style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s; text-decoration: none;" %>
+</div>
 <div class="container emerg d-flex justify-content-center">
   <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="texto">
@@ -5,9 +8,9 @@
       </div>
       <div class="badge rounded-pill text-bg-light text-lg">
         <% if params[:precision]=="true" %>
-          <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
+          <p>Sua localização: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
         <% else %>
-          <p>Sua localização esta correta? <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %></p>
+          <p>Sua localização está correta? <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %></p>
         <% end %>
       </div>
       <div class="d-flex justify-content-between my-5 align-items-center">
@@ -33,7 +36,7 @@
                         class: "d-none",
                         id: "long" %>
           </div>
-          <%= submit_tag "Localização Precisa", name: "", style: "border: 0; border-radius: 100px; background-color: #5d737e; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
+          <%= submit_tag "Atualizar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #5d737e; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
         <% end %>
       </div>
     <div class="card-emerg mt-2">
@@ -52,7 +55,7 @@
       <div class="d-flex px-2 my-4 align-items-center">
         <small>Filtrar por: </small>
           <%= link_to "Tempo", clinics_path(filter:"time"), class:"btn btn-sm btn-light rounded-pill text-bg-light mr-2 text-decoration-none" %>
-          <%= link_to "Distancia", clinics_path(filter:"distance"), class:"btn btn-sm btn-light rounded-pill text-bg-light mr-2 text-decoration-none" %>
+          <%= link_to "Distância", clinics_path(filter:"distance"), class:"btn btn-sm btn-light rounded-pill text-bg-light mr-2 text-decoration-none" %>
       </div>
         <div class="clinic-container" data-alert-target="list">
 
@@ -61,7 +64,7 @@
             <% n.calculate %>
               <div class="clinic-details mb-3">
                 <h5 class="card-title"><strong><%= clinic.name.upcase %></h5></strong>
-                <p class="card-text">Endereço: <%= clinic.address %>  lat<%= clinic.lat %> long<%= clinic.long %></p>
+                <p class="card-text">Endereço: <%= clinic.address %></p>
                 <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
                 <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
                 <p class="card-text">Tempo de espera: <%= clinic.emergency_time %>min</p>
