@@ -12,16 +12,12 @@
           <div class="corpo">
             <%= image_tag "corpo.png", alt: "Corpo humano", class: "body-image" %>
           </div>
+          <div class="col-md-12">
+            <%= f.input :pain_scale, as: :radio_buttons, collection: (1..10).to_a,
+                        label: "Qual é a sua escala de dor (de 1 a 10)?", wrapper_html: { class: "d-flex justify-content-center px-5" } %>
+          </div>
         </div>
       </ul>
-    </div>
-  </div>
-  <div class="container emergencia d-flex justify-content-center">
-    <div class="row emergencia col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="col-md-12">
-        <%= f.input :pain_scale, as: :radio_buttons, collection: (1..10).to_a,
-                    label: "Qual é a sua escala de dor (de 1 a 10)?" %>
-      </div>
     </div>
   </div>
   <div class="container emergencia d-flex justify-content-center">
