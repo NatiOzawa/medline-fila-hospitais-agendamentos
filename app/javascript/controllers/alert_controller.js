@@ -5,19 +5,20 @@ import  Swal  from "sweetalert2"
 export default class extends Controller {
 
   connect() {
-    const emergencyLink = this.element;
-    emergencyLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      Swal.fire({
-        icon: "warning",
-        title: "Atenção",
-        html: 'Em casos de:<br>- Sinais de ataque cardiaco<br>- Sinais de derrame<br>- Tentativa de suicídio<br>- Dificuldade severa em respirar<br>- Sangramento excessivo<br>- Machucados graves<br>- Convulsões<br>Procure a unidade mais próxima ou ligue agora para o SAMU.',
-        footer: '<a href="">Por que tenho esse problema?</a>'
-      }).then(() => {
-        window.location.href = '/clinics';
-      });
-    });
+
   }
 
-
+  display() {
+    Swal.fire({
+      title: '',
+      text: '',
+      imageUrl: '/images/alerta.png',
+      imageWidth: 400,
+      imageHeight: 300,
+      imageAlt: 'Alerta',
+    })
+      // .then(() => {
+      //   window.location.href = '/clinics';
+      //   });
+  }
 }

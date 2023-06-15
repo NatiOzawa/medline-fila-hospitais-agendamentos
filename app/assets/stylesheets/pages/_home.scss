@@ -1,4 +1,3 @@
-
 .home-cards-top {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -6,6 +5,11 @@
 }
 
 .card-title {
+  color: #23423f;
+  text-align: center;
+}
+
+.card-text {
   color: #23423f;
   text-align: center;
 }

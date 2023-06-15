@@ -19,7 +19,7 @@ CSV.foreach(file, headers: :first_row, col_sep: ';') do |row|
     long: row["LONGITUDE"].to_f,
     emergency_time: rand(15..45)
   )
-  5.times do
+  rand(1..5).times do
     doctor = Doctor.new(
       name: Faker::Name.name,
       specialty: Doctor::SPECIALTIES.sample,
@@ -49,7 +49,7 @@ user_long = [
 # clinic_long = [-44.29, -43.312, -41.77388, -43.47152, -42.84874 ]
 
 
-20.times do |i|
+10.times do |i|
   result = Geocoder.search([user_lat[i], user_long[i]]).first
   user = User.new(
     first_name: Faker::Name.first_name,
@@ -63,40 +63,34 @@ user_long = [
     lat: user_lat[i],
     long: user_long[i]
   )
+  4.times do
+    appointment = Appointment.new(
+      user: user,
+      doctor: Doctor.all.sample,
+      time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30, format: :default),
+      status: ['Agendado', 'Realizado', 'Cancelado'].sample,
+      clinic: Clinic.all.sample,
+      emergency: [true, false].sample,
+      date_position: Faker::Number.between(from: 1, to: 20),
+      delay_time: [0, 1].sample * rand(0..25)
+    )
+    appointment.save!
+  end
+
   user.save!
 end
 
-# 5.times do
-#   clinic = Clinic.new(
-#     name: Faker::Company.name,
-#     address: Faker::Address.full_address,
-#     phone: Faker::PhoneNumber.phone_number,
-#     lat: clinic_lat.sample,
-#     long: clinic_long.sample
-#   )
-#   clinic.save!
-# end
 
-# 10.times do
-#   doctor = Doctor.new(
-#     name: Faker::Name.name,
-#     specialty: Doctor::SPECIALTIES.sample,
-#     crm: Faker::Number.number(digits: 6),
-#     clinic: Clinic.all.sample
+# 30.times do
+#   appointment = Appointment.new(
+#     user: User.all.sample,
+#     doctor: Doctor.all.sample,
+#     time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30, format: :default),
+#     status: ['Agendado', 'Realizado', 'Cancelado'].sample,
+#     clinic: Clinic.all.sample,
+#     emergency: [true, false].sample,
+#     date_position: Faker::Number.between(from: 1, to: 20),
+#     delay_time: [0, 1].sample * rand(0..25)
 #   )
-#   doctor.save!
+#   appointment.save!
 # end
-
-30.times do
-  appointment = Appointment.new(
-    user: User.all.sample,
-    doctor: Doctor.all.sample,
-    time: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30, format: :default),
-    status: ['Agendado', 'Realizado', 'Cancelado'].sample,
-    clinic: Clinic.all.sample,
-    emergency: [true, false].sample,
-    date_position: Faker::Number.between(from: 1, to: 20),
-    delay_time: [0, 1].sample * rand(0..25)
-  )
-  appointment.save!
-end
