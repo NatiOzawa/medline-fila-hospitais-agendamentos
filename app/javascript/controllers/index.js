@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
+import CountdownController from "./countdown_controller"
+application.register("countdown", CountdownController)
+
 import EmergencyController from "./emergency_controller"
 application.register("emergency", EmergencyController)
 

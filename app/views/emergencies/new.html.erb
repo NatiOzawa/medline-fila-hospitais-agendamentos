@@ -1,23 +1,26 @@
-<h1><strong>Cadastrar emergencia</h1></strong>
+<h1><strong>Cadastrar Emergência</h1></strong>
 
 <%= simple_form_for @appointment, url: clinic_emergencies_path(@clinic) do |f| %>
-  <div class="container emergencia d-flex justify-content-center">
-    <div class="row emergencia col-xs-12 col-sm-6 col-sm-offset-3">
-      <ul class="emergencias">
-        <div class="row">
-          <div class="col-md-6 areas">
-            <%= f.input :body_area, as: :check_boxes, collection: ['1. Cabeça', '2. Pescoço', '3. Ombros', '4. Costas', '5. Abdômen', '6. Pernas', '7. Pés', '8. Braços'],
-                        label: "Quais áreas do corpo estão tendo sintomas?" %>
-          </div>
-          <div class="corpo">
-            <%= image_tag "corpo.png", alt: "Corpo humano", class: "body-image" %>
-          </div>
-          <div class="col-md-12">
-            <%= f.input :pain_scale, as: :radio_buttons, collection: (1..10).to_a,
-                        label: "Qual é a sua escala de dor (de 1 a 10)?", wrapper_html: { class: "d-flex justify-content-center px-5" } %>
-          </div>
+  <div class="container d-flex justify-content-center">
+    <div class="row w-75 emergencias justify-content-around">
+      <div class="col-6 areas">
+        <div>
+          <%= f.input :body_area, as: :check_boxes, collection: ['1. Cabeça', '2. Pescoço', '3. Ombros', '4. Costas', '5. Abdômen', '6. Pernas', '7. Pés', '8. Braços'],
+                      label: "Quais áreas do corpo estão tendo sintomas?" %>
         </div>
-      </ul>
+        <div class="col-3"></div>
+        <div>
+          <br>
+          <br>
+          <br>
+          <p>Qual é a sua escala de dor (de 1 a 10)?</p>
+          <%= f.input :pain_scale, as: :radio_buttons, collection: (1..10).to_a,
+                      label: "", wrapper_html: { class: "d-flex justify-content-center" } %>
+        </div>
+      </div>
+      <div class="corpo col-3">
+        <%= image_tag "corpo.png", alt: "Corpo humano", class: "body-image" %>
+      </div>
     </div>
   </div>
   <div class="container emergencia d-flex justify-content-center">
@@ -28,12 +31,7 @@
       </div>
     </div>
   </div>
-      <%= f.submit "Create emergency", class: "btn btn-primary" %>
+  <div class="w-100 text-center">
+    <%= f.submit "Criar Emergência", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
   </div>
 <% end %>
-<style>
-.body-image {
-  max-width: 100%;
-  height: auto;
-}
-</style>
