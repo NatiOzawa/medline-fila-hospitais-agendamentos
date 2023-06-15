@@ -12,6 +12,11 @@ class Appointment < ApplicationRecord
     user.appointments.where("time >= ?", Time.current).order(:time).first
   end
 
+  def self.today?(user)
+    appointment = user.appointments.where("time >= ?", Time.current).order(:time).first
+    appointment.blank? ? false : appointment.time.day == Time.current.day
+  end
+
   def self.history(user)
     user.appointments.where("time < ?", Time.current)
   end

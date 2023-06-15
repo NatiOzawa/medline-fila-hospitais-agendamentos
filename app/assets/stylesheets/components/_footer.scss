@@ -1,3 +1,10 @@
+@media only screen and (max-width: 767px) {
+  .footer-contact,
+  .footer-content {
+    display:none;
+  }
+}
+
 .footer {
   background: #F4F4F4;
   display: flex;
