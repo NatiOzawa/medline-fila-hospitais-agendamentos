@@ -3,10 +3,9 @@
 <div class="container">
   <div class="home-cards-top" style="min-height: 300px;">
     <div class="card-emergency d-flex align-items-center justify-content-center">
-        <%= link_to clinics_path, style: "text-decoration: none", "data-controller": "alert", "data-action": "click->alert#connect" do %>
+        <%= link_to clinics_path, style: "text-decoration: none", data:{ controller: "alert", action:"click->alert#display"} do %>
           <h3 class="card-title"><strong>Emergência</strong></h3>
         <% end %>
-
     </div>
 
     <div class="card-position d-flex flex-column align-items-center">
