@@ -13,10 +13,10 @@
         <% unless Appointment.today?(current_user) %>
           <h2><strong>Não tem agendamento no momento</strong></h2>
         <% else %>
-          <h3 class="white-text"><strong>Tempo até Atendimento:</strong></h3>
+          <h3 class="card-title"><strong>Tempo até Atendimento:</strong></h3>
           <time>
-            <h3 class="date_time">
-              <% if ((Appointment.next(current_user).time - Time.current)/60).round(0) > 59 %>
+            <h3 class="card-text">
+              <% if ((Appointment.next(current_user).time - Time.current)/60).round(0)>59 %>
                 <p>
                   <% time_difference = Appointment.next(current_user).time - Time.current %>
                   <% hours = (time_difference / 3600).floor %>

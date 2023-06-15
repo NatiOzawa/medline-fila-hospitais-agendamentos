@@ -1,3 +1,6 @@
+<div class="button">
+  <%= link_to "Voltar", home_path, style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s; text-decoration: none;" %>
+</div>
 <div class="container meus-agendamentos d-flex justify-content-center">
   <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="texto">
@@ -9,12 +12,10 @@
             <p>
               <strong>Data:</strong> <%= l appointment.time, format: "%d/%m/%y - %H:%M" %><br>
               <% if appointment.emergency  %>
-                <strong>Emergência</strong>
+                <strong>Emergência Médica</strong><br>
               <% end %>
               <% if appointment.doctor  %>
-                <strong>Especialidade:</strong> <%= appointment.doctor.specialty %> - Médico: <%= appointment.doctor.name %><br>
-              <% else %>
-                <strong>Médico:</strong> Plantão<br>
+                <strong>Especialidade:</strong> <%= appointment.doctor.specialty %> <br><strong>Médico:</strong> <%= appointment.doctor.name %><br>
               <% end %>
               <strong>Clínica:</strong> <%= appointment.clinic.name %><br>
               <strong>Endereço:</strong> <%= appointment.clinic.address %><br>
