@@ -12,11 +12,11 @@
           <p>
             <strong>Data:</strong> <%= l appointment.time, format: "%d/%m/%y %H:%M" %></p>
           <% if appointment.emergency %>
-            <strong>Emergência - Médico do plantão</strong>
+            <strong>Emergência Médica</strong>
           <% else %>
-            <strong>Consulta:</strong> <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %>
-          <% end %>
-            <strong>Clinica:</strong> <%=  appointment.clinic.name %></p>
+            <strong>Consulta:</strong> <%=  appointment.doctor.specialty %><br><strong> Médico: </strong><%=  appointment.doctor.name %>
+          <% end %><br>
+            <strong>Clinica:</strong> <%=  appointment.clinic.name.upcase %></p>
         </p></ul>
       <% end %>
     </div>
