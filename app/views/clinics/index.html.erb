@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="text-center my-2">Selecione uma clínica</h3>
+  <h3 class="text-center my-2">Selecione uma Clínica</h3>
   <% if params[:precision]=="true" %>
     <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
   <% else %>
@@ -13,7 +13,7 @@
                   class: "d-none",
                   data: {address_autocomplete_target: "address"}%>
     </div>
-    <%= submit_tag "Mudar localização", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
+    <%= submit_tag "Mudar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
   <% end %>
   <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
     <div data-controller="emergency">
@@ -26,7 +26,7 @@
                   class: "d-none",
                   id: "long" %>
     </div>
-    <%= submit_tag "Atualizar localização", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
+    <%= submit_tag "Atualizar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
   <% end %>
 
   <div class="row justify-content-center">
@@ -37,7 +37,7 @@
               class: "form-control",
               placeholder: "Procure uma clínica"
           %>
-        <%= submit_tag "Pesquisar", name: "", style: "padding: 12.5px 30px; border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;" %>
+        <%= submit_tag "Pesquisar", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
       <% end %>
     </div>
   </div>
@@ -61,7 +61,7 @@
               <p class="card-text">Tempo total: <%= clinic.emergency_time + (n.duration/60).round(0) %>min</p>
             </div>
             <div class="clinic-actions">
-              <%= link_to "Selecionar", new_clinic_emergency_path(clinic), class: "btn btn-primary" %>
+              <%= link_to "Selecionar", new_clinic_emergency_path(clinic), style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
             </div>
           </div>
         </div>

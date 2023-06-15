@@ -1,14 +1,14 @@
 <div class="container meus-agendamentos d-flex justify-content-center">
   <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="texto">
-      <h1><strong>Histórico de atendimentos</h1></strong>
+      <h1><strong>Histórico de Atendimentos</h1></strong>
     </div>
     <div class="home-history">
       <% Appointment.history(current_user).each do |appointment| %>
         <li><p>
           <p>Data: <%= l appointment.time, format: "%d/%m/%y %H:%M" %></p>
           <p>Especialidade: <%=  appointment.doctor.specialty %> - Médico: <%=  appointment.doctor.name %> </p>
-          <p>Clinica: <%=  appointment.clinic.name %></p>
+          <p>Clínica: <%=  appointment.clinic.name %></p>
         </p></li>
       <% end %>
     </div>
