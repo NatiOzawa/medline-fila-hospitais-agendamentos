@@ -1,71 +1,76 @@
-<div class="container">
-  <h3 class="text-center my-2">Selecione uma Clínica</h3>
-  <% if params[:precision]=="true" %>
-    <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
-  <% else %>
-    <p>Sua localização esta correta? <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %></p>
-  <% end %>
-  <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
-    <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV["MAPBOX_API_KEY"] %>">
-      <%= text_field_tag :address,
-                  params[:address],
-                  label: "Endereço atual",
-                  class: "d-none",
-                  data: {address_autocomplete_target: "address"}%>
-    </div>
-    <%= submit_tag "Mudar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
-  <% end %>
-  <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
-    <div data-controller="emergency">
-      <%= text_field_tag :latitude,
-                  params[:latitude],
-                  class: "d-none",
-                  id: "lat" %>
-      <%= text_field_tag :longitude,
-                  params[:longitude],
-                  class: "d-none",
-                  id: "long" %>
-    </div>
-    <%= submit_tag "Atualizar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
-  <% end %>
-
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-      <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Procure uma clínica"
-          %>
-        <%= submit_tag "Pesquisar", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div><%= link_to "Tempo", clinics_path(filter:"time") %></div>
-  <div><%= link_to "Distancia", clinics_path(filter:"distance") %></div>
-
-  <div class="clinic-container" data-alert-target="list">
-    <% @clinics.take(10).each do |clinic| %>
-      <% n = NavigationService.new(clinic.long, clinic.lat, current_user.current_long, current_user.current_lat) %>
-      <% n.calculate %>
-      <div class="clinic card mb-3">
-        <div class="card-body">
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="clinic-details">
-              <h5 class="card-title">Nome: <%= clinic.name %></h5>
-              <p class="card-text">Endereço: <%= clinic.address %>  lat<%= clinic.lat %> long<%= clinic.long %></p>
-              <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
-              <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
-              <p class="card-text">Tempo de espera: <%= clinic.emergency_time %>min</p>
-              <p class="card-text">Tempo total: <%= clinic.emergency_time + (n.duration/60).round(0) %>min</p>
-            </div>
-            <div class="clinic-actions">
-              <%= link_to "Selecionar", new_clinic_emergency_path(clinic), style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
-            </div>
+<div class="container emerg d-flex justify-content-center">
+  <div class="row col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="texto">
+        <h1><strong>Selecione uma Clínica</strong></h1>
+      </div>
+      <div class="badge rounded-pill text-bg-light text-lg">
+        <% if params[:precision]=="true" %>
+          <p>Localização precisa: <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %> </p>
+        <% else %>
+          <p>Sua localização esta correta? <%= ClinicHelper.show_address(current_user.current_lat,current_user.current_long) %></p>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-between my-5 align-items-center">
+        <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+          <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV["MAPBOX_API_KEY"] %>">
+            <%= text_field_tag :address,
+                        params[:address],
+                        label: "Endereço atual",
+                        class: "d-none",
+                        data: {address_autocomplete_target: "address"}%>
           </div>
+          <%= submit_tag "Mudar localização", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
+        <% end %>
+        <div class="mx-2">OU</div>
+        <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+          <div data-controller="emergency">
+            <%= text_field_tag :latitude,
+                        params[:latitude],
+                        class: "d-none",
+                        id: "lat" %>
+            <%= text_field_tag :longitude,
+                        params[:longitude],
+                        class: "d-none",
+                        id: "long" %>
+          </div>
+          <%= submit_tag "Localização Precisa", name: "", style: "border: 0; border-radius: 100px; background-color: #5d737e; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
+        <% end %>
+      </div>
+    <div class="card-emerg mt-2">
+      <div class="w-100">
+        <div class="my-3">
+          <%= form_with url: clinics_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Procure uma clínica"
+              %>
+            <%= submit_tag "Pesquisar", name: "", style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
+          <% end %>
         </div>
       </div>
-    <% end %>
+      <div class="d-flex px-2 my-4 align-items-center">
+        <small>Filtrar por: </small>
+          <%= link_to "Tempo", clinics_path(filter:"time"), class:"btn btn-sm btn-light rounded-pill text-bg-light mr-2 text-decoration-none" %>
+          <%= link_to "Distancia", clinics_path(filter:"distance"), class:"btn btn-sm btn-light rounded-pill text-bg-light mr-2 text-decoration-none" %>
+      </div>
+        <div class="clinic-container" data-alert-target="list">
+
+          <% @clinics.take(10).each do |clinic| %>
+            <% n = NavigationService.new(clinic.long, clinic.lat, current_user.current_long, current_user.current_lat) %>
+            <% n.calculate %>
+              <div class="clinic-details mb-3">
+                <h5 class="card-title"><strong><%= clinic.name.upcase %></h5></strong>
+                <p class="card-text">Endereço: <%= clinic.address %>  lat<%= clinic.lat %> long<%= clinic.long %></p>
+                <p class="card-text">Distância: <%= (n.distance/1000).round(1) %>Kms</p>
+                <p class="card-text">Tempo de deslocamento: <%= (n.duration/60).round(0) %>min</p>
+                <p class="card-text">Tempo de espera: <%= clinic.emergency_time %>min</p>
+                <p class="card-text">Tempo total: <%= clinic.emergency_time + (n.duration/60).round(0) %>min</p>
+                <%= link_to "Selecionar", new_clinic_emergency_path(clinic), style: "border: 0; border-radius: 100px; background-color: #64B6AC; color: #ffffff; font-weight: bold; transition: all 0.5s; -webkit-transition: all 0.5s;", class: "btn" %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
