@@ -11,9 +11,9 @@
     <div class="card-position d-flex flex-column align-items-center">
       <div class="my-auto mx-3">
         <% unless Appointment.today?(current_user) %>
-          <h2><strong>Não tem agendamento no momento</strong></h2>
+          <h4 class="card-text"><strong>Sem agendamentos hoje</strong></h4>
         <% else %>
-          <h3 class="card-title"><strong>Tempo até Atendimento:</strong></h3>
+          <h4 class="card-title"><strong>Tempo até Atendimento:</strong></h4>
           <time>
             <h3 class="card-text">
               <% if ((Appointment.next(current_user).time - Time.current)/60).round(0)>59 %>
@@ -38,7 +38,7 @@
         <div class="next-appointments d-flex flex-column align-items-center">
           <div class="my-auto mx-3">
             <% if Appointment.next(current_user).blank? %>
-              <h4 class="card-title"><strong> Não há agendamentos no momento </strong></h4>
+              <h4 class="card-title"><strong> Nenhuma consulta marcada </strong></h4>
             <% else %>
               <h4 class="card-title"><strong>Próxima Consulta:</strong></h4>
               <time>
