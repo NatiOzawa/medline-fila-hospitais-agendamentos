@@ -17,7 +17,7 @@
               <% if appointment.doctor  %>
                 <strong>Especialidade:</strong> <%= appointment.doctor.specialty %> <br><strong>Médico:</strong> <%= appointment.doctor.name %><br>
               <% end %>
-              <strong>Clínica:</strong> <%= appointment.clinic.name %><br>
+              <strong>Clínica:</strong> <%= appointment.clinic.name.upcase %><br>
               <strong>Endereço:</strong> <%= appointment.clinic.address %><br>
             </p>
             <form action="<%= appointment_path(appointment) %>" method="post" style="display: flex; justify-content: flex-end;">
